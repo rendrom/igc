@@ -139,3 +139,8 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=7200),
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7)
 }
+
+try:
+    from prj.local_settings import *
+except ImportError:
+    pass
