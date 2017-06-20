@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
-
-import {Observable} from 'rxjs/Rx'; // might lead to error
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import {Injectable} from "@angular/core";
+import {Observable} from "rxjs/Rx";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
+import {HttpClientService} from "../http-client.service";
+import {FellowItem} from "./fellow"; // might lead to error
 
 const endpoint = '/api/igc/';
 
@@ -11,7 +11,7 @@ const endpoint = '/api/igc/';
 export class FellowsService {
 
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClientService) {
   }
 
   list() {
@@ -26,16 +26,22 @@ export class FellowsService {
       .catch(FellowsService.handleError)
   }
 
-  private static handleError(error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
+  update(slug, data: FellowItem) {
+    return this.http.post(endpoint + slug + "/", data)
+      .map(response => response.json())
+      .catch(FellowsService.handleError)
+  }
+
+  addPublication(slug, data) {
+    return this.http.post(endpoint + slug + "/publications/", data)
+      .map(response => response.json())
+      .catch(FellowsService.handleError)
+  }
+
+  private static handleError(error: any) {
     let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || '' }`;
-    } else {
-      errMsg = "Server error occurred please try again.";
-    }
+    errMsg = "Server error occurred please try again.";
+
     return Observable.throw(errMsg);
   }
 

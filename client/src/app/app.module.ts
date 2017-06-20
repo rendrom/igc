@@ -27,6 +27,7 @@ import {AuthenticationService} from "./authentication.service";
 import {FellowsService} from "./fellows/fellows.service";
 import {ExRequestOptions} from "./ex-request.service";
 import {UserService} from "app/user.service";
+import {HttpClientService} from "./http-client.service";
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {UserService} from "app/user.service";
     AuthGuard,
     AuthenticationService,
     UserService,
-    ExRequestOptions
+    ExRequestOptions,
+    HttpClientService
   ],
   bootstrap: [AppComponent]
 })

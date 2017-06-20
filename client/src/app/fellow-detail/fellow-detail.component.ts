@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {FellowItem} from "../fellows/fellow";
-import {Http} from "@angular/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FellowsService} from "../fellows/fellows.service";
 import {User} from "app/user";
 import {AuthenticationService} from "../authentication.service";
+import {PublicationItem} from "../fellows/publication";
 
 @Component({
   selector: 'app-fellow-detail',
@@ -15,6 +15,8 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
   private req: any;
   private routeSub: any;
   fellow: FellowItem;
+  newFellow: FellowItem;
+  newPublication: any;
   slug: string;
   user: User;
   editMode: boolean = false;
@@ -29,17 +31,24 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.user = this.authenticationService.user;
     this.authenticationService.userUpdate.subscribe(user => {
       this.user = user;
+      this.newPublication = {author: this.user.id}
     });
     this.routeSub = this.route.params.subscribe(params => {
       this.slug = params['slug'];
       this.req = this.fellowsService.get(this.slug).subscribe(data => {
         this.fellow = data as FellowItem;
+        this.cloneFellow();
         this.route.data
-          .subscribe((data: { editMode: false }) => {
+          .subscribe((data: { editMode }) => {
             this.editMode = data.editMode;
           });
       })
     });
+
+  }
+
+  cloneFellow() {
+    this.newFellow = JSON.parse(JSON.stringify(this.fellow))
   }
 
   goToEditDetail(slug) {
@@ -47,7 +56,33 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(link);
   }
 
+  getFullPost() {
+    return [this.fellow.post, this.fellow.post_sci, this.fellow.post_academy].filter(x => x).join(", ");
+  }
+
   save() {
+    this.fellowsService.update(this.slug, this.newFellow).subscribe(params => {
+      this.fellow = params;
+      this.cancel();
+    }, error => {
+
+    });
+
+  }
+
+  addPublication() {
+    this.fellowsService.addPublication(this.slug, this.newPublication).subscribe((params: any) => {
+      if (params) {
+        let bibliogrphy = params && params.bibliography;
+        this.fellow.publications.push(bibliogrphy);
+        this.newPublication = {author: this.user.id};
+      }
+    })
+  }
+
+
+  cancel() {
+    this.cloneFellow();
     let link = ['/fellow/', this.slug];
     this.router.navigate(link);
   }

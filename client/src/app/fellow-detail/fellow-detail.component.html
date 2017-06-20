@@ -1,43 +1,117 @@
-<div *ngIf='fellow'>
+<div *ngIf='fellow' xmlns="http://www.w3.org/1999/html">
     <md-card class="example-card" *ngIf="!editMode">
         <md-card-header>
-            <md-card-title>{{ fellow.first_name }} {{ fellow.last_name }}</md-card-title>
-            <md-card-subtitle>к.г.-м.н.</md-card-subtitle>
+            <md-card-title>
+                <h3>
+                <span *ngIf="fellow.first_name || fellow.last_name || fellow.midle_name">
+                    {{ fellow.first_name }} {{ fellow.last_name }} {{ fellow.midle_name }}</span>
+                    <span *ngIf="!(fellow.first_name || fellow.last_name || fellow.midle_name)">{{ fellow.username }}</span>
+                    <md-icon *ngIf="user && fellow.id == user.id">verified_user</md-icon>
+                </h3>
+            </md-card-title>
+            <md-card-subtitle>
+                <span *ngIf="fellow.post">{{ fellow.post }}</span>
+                <span *ngIf="fellow.post_sci"> {{ fellow.post_sci }}</span>
+                <span *ngIf="fellow.post_academy"> {{ post_academy }}</span>
+            </md-card-subtitle>
         </md-card-header>
         <md-card-content>
-            <p>
-                {{ fellow.biography }}
-            </p>
+            <md-list>
+                <md-list-item>
+                    <md-icon>email</md-icon>
+                    <label> Адрес электронной почты: </label> {{ newFellow.email }}</md-list-item>
+                <md-list-item>
+                    <md-icon>phone</md-icon>
+                    <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>
+                <md-list-item>
+                    <md-icon>information</md-icon>
+                    <label> Биография: </label> {{ newFellow.vita }}</md-list-item>
+            </md-list>
+            <div *ngIf="fellow.publications">
+                <h4> Список публикаций: </h4>
+                <md-list>
+                    <md-list-item *ngFor="let publication of fellow.publications">{{ publication }}</md-list-item>
+                </md-list>
+                <md-input-container *ngIf="user && fellow.id == user.id">
+                            <textarea mdInput type="text" placeholder="Добавить публикацию"
+                                      [(ngModel)]="newPublication.bibliography"></textarea>
+                </md-input-container>
+                <button md-button *ngIf="user && fellow.id == user.id"
+                        (click)="addPublication()">Добавить
+                </button>
+            </div>
+
+
         </md-card-content>
         <md-card-actions>
-            <button md-button *ngIf="!editMode && user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">
-                Редактировать
+            <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">Редактировать
             </button>
         </md-card-actions>
     </md-card>
-     <md-card class="example-card" *ngIf="editMode">
+
+
+    <md-card class="example-card" *ngIf="editMode">
         <md-card-header>
             Редактирование учётной записи
         </md-card-header>
         <md-card-content>
             <form name="form" novalidate>
-            <div class="group">
-                <md-input-container >
-                    <input mdInput type="text" placeholder="Имя" class="form-control" name="username"
-                           [(ngModel)]="fellow.first_name"/>
-                </md-input-container>
-            </div>
-            <div class="group">
-                <md-input-container>
-                    <input mdInput type="text" placeholder="Фамилия" class="form-control" name="password"
-                           [(ngModel)]="fellow.last_name"/>
-                </md-input-container>
-            </div>
-        </form>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Имя" name="first_name"
+                               [(ngModel)]="newFellow.first_name" required/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Фамилия" name="last_name"
+                               [(ngModel)]="newFellow.last_name" required/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Отчество" name="midle_name"
+                               [(ngModel)]="newFellow.midle_name"/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Должность" name="post"
+                               [(ngModel)]="newFellow.post"/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Учёная степень" name="post_sci"
+                               [(ngModel)]="newFellow.post_sci"/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="text" placeholder="Учёное звание" name="post_academy"
+                               [(ngModel)]="newFellow.post_academy"/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <input mdInput type="tel" placeholder="Номер телефлна" name="phone"
+                               [(ngModel)]="newFellow.phone"/>
+                    </md-input-container>
+                </div>
+                <div class="group">
+                    <md-input-container>
+                        <textarea mdInput type="text" placeholder="Биография" name="vita"
+                                  [(ngModel)]="newFellow.vita"></textarea>
+                    </md-input-container>
+                </div>
+            </form>
         </md-card-content>
         <md-card-actions>
             <button md-button *ngIf="editMode && user && fellow.id == user.id" (click)="save()">
                 Сохранить
+            </button>
+            <button md-button *ngIf="editMode && user && fellow.id == user.id" (click)="cancel()">
+                Отменить
             </button>
         </md-card-actions>
     </md-card>

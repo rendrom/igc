@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map'
 import {Router} from "@angular/router";
 import {UserService} from "./user.service";
 import {User} from "./user";
+import {HttpClientService} from "./http-client.service";
 
 @Injectable()
 export class AuthenticationService {
@@ -12,11 +13,12 @@ export class AuthenticationService {
   user: User;
   userUpdate: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: Http, private router: Router) {
+  constructor(private http: Http, private httpClient: HttpClientService, private router: Router) {
     // set token if saved in local storage
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
     if (this.token) {
+      this.httpClient.addHeader('Authorization', 'JWT ' + this.token);
       this.getUser();
     }
   }
@@ -31,6 +33,7 @@ export class AuthenticationService {
         if (token) {
           // set token property
           this.token = token;
+          this.httpClient.addHeader('Authorization', 'JWT ' + this.token);
           this.getUser();
           localStorage.setItem('currentUser', JSON.stringify({username: username, token: token}));
           return true;
@@ -41,11 +44,8 @@ export class AuthenticationService {
   }
 
   getCurrentUser() {
-    let headers = new Headers({'Authorization': 'JWT ' + this.token});
-    let options = new RequestOptions({headers: headers});
-
     // get users from api
-    return this.http.get('/account/me/', options)
+    return this.httpClient.get('/account/me/')
       .map((response: Response) => response.json());
   }
 
@@ -63,6 +63,7 @@ export class AuthenticationService {
     this.userUpdate.emit(null);
     this.router.navigate(['/login']);
     localStorage.removeItem('currentUser');
+    this.httpClient.removeHeader('Authorization');
   }
 }
 

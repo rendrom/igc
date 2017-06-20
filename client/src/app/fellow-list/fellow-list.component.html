@@ -1,19 +1,27 @@
 <h3 md-subheader>Сотрудники</h3>
 <div *ngIf='!fellowsList'>
-     <md-progress-spinner [mode]="indeterminate"></md-progress-spinner>
+    <md-progress-spinner [mode]="indeterminate"></md-progress-spinner>
 </div>
 <div *ngIf='fellowsList'>
     <md-card class="fellows-card" *ngFor="let fellow of fellowsList">
         <md-card-header>
             <md-card-title>
+                <span *ngIf="fellow.first_name || fellow.last_name || fellow.midle_name">
+                    {{ fellow.first_name }} {{ fellow.last_name }} {{ fellow.midle_name }}</span>
+                <span *ngIf="!(fellow.first_name || fellow.last_name || fellow.midle_name)">{{ fellow.username }}</span>
                 <md-icon *ngIf="user && fellow.id == user.id">verified_user</md-icon>
-                {{ fellow.first_name }} {{ fellow.last_name }}
             </md-card-title>
-            <md-card-subtitle>к.г.-м.н.</md-card-subtitle>
+            <md-card-subtitle>
+                <span *ngIf="fellow.post">{{ fellow.post }}</span>
+                <span *ngIf="fellow.post_sci"> {{ fellow.post_sci }}</span>
+                <span *ngIf="fellow.post_academy"> {{ post_academy }}</span>
+                {{ fellow.publications }}
+            </md-card-subtitle>
         </md-card-header>
         <md-card-actions>
             <button md-button (click)="goToDetail(fellow.slug)">Перейти</button>
-            <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">Редактировать</button>
+            <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">Редактировать
+            </button>
         </md-card-actions>
     </md-card>
 </div>
