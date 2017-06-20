@@ -21,6 +21,12 @@ export class FellowsService {
       .catch(FellowsService.handleError)
   }
 
+  get(slug) {
+    return this.http.get(endpoint + slug + "/")
+      .map(response => response.json())
+      .catch(FellowsService.handleError)
+  }
+
   private static handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;

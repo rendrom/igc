@@ -1,3 +1,14 @@
-<p>
-  fellow-list works!
-</p>
+<h3 md-subheader>Сотрудники</h3>
+<div *ngIf='fellowsList'>
+    <md-card class="fellows-card" *ngFor="let fellow of fellowsList">
+        <md-card-header>
+            <md-card-title>{{ fellow.first_name }} {{ fellow.last_name }}</md-card-title>
+            <md-card-subtitle>к.г.-м.н.</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button (click)="goToDetail(fellow.slug)">Перейти</button>
+        </md-card-actions>
+    </md-card>
+</div>

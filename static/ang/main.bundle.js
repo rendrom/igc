@@ -1,1 +1,548 @@
-webpackJsonp([1],{"+h1B":function(n,t,l){"use strict";var u=l("/oeL"),r=l("aR8+"),e=l("wQAS"),o=l("ZErz"),i=l("VGgI"),c=l("45M7"),a=l("q4dy"),f=l("qbdv"),d=l("fc+i"),s=l("bm2B"),p=l("CPp0"),_=l("BkNc"),v=l("ECCM"),h=l("r8OR"),g=l("SdTV"),y=l("jHMo");l.d(t,"a",function(){return w});var w=u.b(r.a,[e.a],function(n){return u.c([u.d(512,u.e,u.f,[[8,[o.a,i.a,c.a,a.a]],[3,u.e],u.g]),u.d(5120,u.h,u.i,[[3,u.h]]),u.d(4608,f.a,f.b,[u.h]),u.d(5120,u.j,u.k,[]),u.d(5120,u.l,u.m,[]),u.d(5120,u.n,u.o,[]),u.d(4608,d.b,d.c,[d.d]),u.d(6144,u.p,null,[d.b]),u.d(4608,d.e,d.f,[]),u.d(5120,d.g,function(n,t,l,u){return[new d.h(n),new d.i(t),new d.j(l,u)]},[d.d,d.d,d.d,d.e]),u.d(4608,d.k,d.k,[d.g,u.q]),u.d(135680,d.l,d.l,[d.d]),u.d(4608,d.m,d.m,[d.k,d.l]),u.d(6144,u.r,null,[d.m]),u.d(6144,d.n,null,[d.l]),u.d(4608,u.s,u.s,[u.q]),u.d(4608,d.o,d.o,[d.d]),u.d(4608,d.p,d.p,[d.d]),u.d(4608,s.a,s.a,[]),u.d(4608,p.a,p.a,[]),u.d(4608,p.b,p.c,[]),u.d(5120,p.d,p.e,[]),u.d(4608,p.f,p.f,[p.a,p.b,p.d]),u.d(4608,p.g,p.h,[]),u.d(5120,p.i,p.j,[p.f,p.g]),u.d(5120,_.a,_.b,[_.c]),u.d(4608,_.d,_.d,[]),u.d(6144,_.e,null,[_.d]),u.d(135680,_.f,_.f,[_.c,u.t,u.u,u.v,_.e]),u.d(4608,_.g,_.g,[]),u.d(5120,_.h,_.i,[_.j]),u.d(5120,u.w,function(n){return[n]},[_.h]),u.d(512,f.c,f.c,[]),u.d(1024,u.x,d.q,[]),u.d(1024,u.y,function(){return[_.k()]},[]),u.d(512,_.j,_.j,[u.v]),u.d(1024,u.z,function(n,t,l){return[d.r(n,t),_.l(l)]},[[2,d.s],[2,u.y],_.j]),u.d(512,u.A,u.A,[[2,u.z]]),u.d(131584,u.B,u.B,[u.q,u.C,u.v,u.x,u.e,u.A]),u.d(2048,u.D,null,[u.B]),u.d(512,u.E,u.E,[u.D]),u.d(512,d.t,d.t,[[3,d.t]]),u.d(512,s.b,s.b,[]),u.d(512,s.c,s.c,[]),u.d(512,p.k,p.k,[]),u.d(1024,_.m,_.n,[[3,_.c]]),u.d(512,_.o,_.p,[]),u.d(512,_.q,_.q,[]),u.d(256,_.r,{},[]),u.d(1024,f.d,_.s,[f.e,[2,f.f],_.r]),u.d(512,f.g,f.g,[f.d]),u.d(512,u.u,u.u,[]),u.d(512,u.t,u.F,[u.u,[2,u.G]]),u.d(1024,_.t,function(){return[[{path:"",component:v.a,pathMatch:"full"},{path:"fellow",component:h.a},{path:"fellow/:slug",component:g.a}]]},[]),u.d(1024,_.c,_.u,[u.D,_.o,_.q,f.g,u.v,u.t,u.u,_.t,_.r,[2,_.v],[2,_.w]]),u.d(512,_.x,_.x,[[2,_.m],[2,_.c]]),u.d(512,y.a,y.a,[]),u.d(512,r.a,r.a,[])])})},0:function(n,t,l){n.exports=l("cDNt")},"45M7":function(n,t,l){"use strict";function u(n){return o._25(0,[(n()(),o._27(0,null,null,1,"p",[],null,null,null,null,null)),(n()(),o._26(null,["\n  fellow-detail works!\n"])),(n()(),o._26(null,["\n"]))],null,null)}function r(n){return o._25(0,[(n()(),o._27(0,null,null,1,"app-fellow-detail",[],null,null,null,u,a)),o._28(114688,null,0,i.a,[],null,null)],function(n,t){n(t,1,0)},null)}var e=l("MnFU"),o=l("/oeL"),i=l("SdTV");l.d(t,"a",function(){return f});var c=[e.a],a=o._24({encapsulation:0,styles:c,data:{}}),f=o._30("app-fellow-detail",i.a,r,{},{},[])},ECCM:function(n,t,l){"use strict";var u=l("CPp0"),r=l("BkNc"),e=l("GAZt");l.d(t,"a",function(){return o});var o=function(){function n(n,t,l){this.http=n,this.router=t,this._fellow=l,this.fellowsList=[]}return n.prototype.ngOnInit=function(){var n=this;this.req=this._fellow.list().subscribe(function(t){n.fellowsList=t})},n.prototype.ngOnDestroy=function(){this.req.unsubscribe()},n.ctorParameters=function(){return[{type:u.i},{type:r.c},{type:e.a}]},n}()},GAZt:function(n,t,l){"use strict";var u=l("CPp0"),r=l("Dqrr"),e=(l.n(r),l("5v8a")),o=(l.n(e),l("xpf9"));l.n(o);l.d(t,"a",function(){return i});var i=function(){function n(n){this.http=n}return n.prototype.list=function(){return this.http.get("/api/igc/").map(function(n){return n.json()}).catch(n.handleError)},n.handleError=function(n){var t;if(n instanceof Response){var l=n.json()||"";JSON.stringify(l);t=n.status+" - "+(n.statusText||"")}else t="Server error occurred please try again.";return r.Observable.throw(t)},n.ctorParameters=function(){return[{type:u.i}]},n}()},JdMA:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=[""]},MnFU:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=[""]},NhKt:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=["body[_ngcontent-%COMP%]{background:#000}"]},SdTV:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=function(){function n(){}return n.prototype.ngOnInit=function(){},n.ctorParameters=function(){return[]},n}()},VGgI:function(n,t,l){"use strict";function u(n){return o._25(0,[(n()(),o._27(0,null,null,1,"p",[],null,null,null,null,null)),(n()(),o._26(null,["\n  fellow-list works!\n"])),(n()(),o._26(null,["\n"]))],null,null)}function r(n){return o._25(0,[(n()(),o._27(0,null,null,1,"app-fellow-list",[],null,null,null,u,a)),o._28(114688,null,0,i.a,[],null,null)],function(n,t){n(t,1,0)},null)}var e=l("jKd+"),o=l("/oeL"),i=l("r8OR");l.d(t,"a",function(){return f});var c=[e.a],a=o._24({encapsulation:0,styles:c,data:{}}),f=o._30("app-fellow-list",i.a,r,{},{},[])},ZErz:function(n,t,l){"use strict";function u(n){return i._25(0,[(n()(),i._27(0,null,null,7,"div",[],null,null,null,null,null)),(n()(),i._26(null,["\n    "," "," "])),(n()(),i._27(0,null,null,4,"a",[["class",""],["routerLinkActive","active"]],[[1,"target",0],[8,"href",4]],[[null,"click"]],function(n,t,l){var u=!0;if("click"===t){u=!1!==i._31(n,3).onClick(l.button,l.ctrlKey,l.metaKey,l.shiftKey)&&u}return u},null,null)),i._28(671744,[[2,4]],0,c.z,[c.c,c.a,a.d],{routerLink:[0,"routerLink"]},null),i._28(1720320,null,2,c.A,[c.c,i.P,i.O,i.T],{routerLinkActive:[0,"routerLinkActive"]},null),i._32(603979776,1,{links:1}),i._32(603979776,2,{linksWithHrefs:1}),(n()(),i._26(null,["\n"]))],function(n,t){n(t,3,0,i._33(1,"/fellows/",t.context.$implicit.slug,""));n(t,4,0,"active")},function(n,t){n(t,1,0,t.context.$implicit.name,t.context.$implicit.surname),n(t,2,0,i._31(t,3).target,i._31(t,3).href)})}function r(n){return i._25(0,[(n()(),i._34(16777216,null,null,1,null,u)),i._28(802816,null,0,a.l,[i.W,i._7,i.l],{ngForOf:[0,"ngForOf"]},null),(n()(),i._26(null,["\n"]))],function(n,t){n(t,1,0,t.component.fellowsList)},null)}function e(n){return i._25(0,[(n()(),i._27(0,null,null,1,"app-home",[],null,null,null,r,_)),i._28(245760,null,0,f.a,[d.i,c.c,s.a],null,null)],function(n,t){n(t,1,0)},null)}var o=l("JdMA"),i=l("/oeL"),c=l("BkNc"),a=l("qbdv"),f=l("ECCM"),d=l("CPp0"),s=l("GAZt");l.d(t,"a",function(){return v});var p=[o.a],_=i._24({encapsulation:0,styles:p,data:{}}),v=i._30("app-home",f.a,e,{},{},[])},"aR8+":function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=function(){function n(){}return n}()},cDNt:function(n,t,l){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u=l("/oeL"),r=l("p5Ee"),e=l("fc+i"),o=l("+h1B");r.a.production&&l.i(u.a)(),l.i(e.a)().bootstrapModuleFactory(o.a)},jHMo:function(n,t,l){"use strict";var u=l("ECCM"),r=l("r8OR"),e=l("SdTV");l.d(t,"a",function(){return o});var o=(u.a,r.a,e.a,function(){function n(){}return n}())},"jKd+":function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=[""]},p5Ee:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u={production:!0}},q4dy:function(n,t,l){"use strict";function u(n){return o._25(0,[(n()(),o._26(null,["\n"])),(n()(),o._27(0,null,null,4,"div",[["style","text-align:center"]],null,null,null,null,null)),(n()(),o._26(null,["\n  "])),(n()(),o._27(0,null,null,1,"h1",[],null,null,null,null,null)),(n()(),o._26(null,["\n    Welcome to ","!!\n  "])),(n()(),o._26(null,["\n"])),(n()(),o._26(null,["\n"])),(n()(),o._27(16777216,null,null,1,"router-outlet",[],null,null,null,null,null)),o._28(212992,null,0,i.y,[i.q,o.W,o.e,[8,null],o.T],null,null),(n()(),o._26(null,["\n"]))],function(n,t){n(t,8,0)},function(n,t){n(t,4,0,t.component.title)})}function r(n){return o._25(0,[(n()(),o._27(0,null,null,2,"app-root",[],null,null,null,u,s)),o._29(4608,null,a.a,a.a,[f.i]),o._28(49152,null,0,c.a,[],null,null)],null,null)}var e=l("NhKt"),o=l("/oeL"),i=l("BkNc"),c=l("wQAS"),a=l("GAZt"),f=l("CPp0");l.d(t,"a",function(){return p});var d=[e.a],s=o._24({encapsulation:0,styles:d,data:{}}),p=o._30("app-root",c.a,r,{},{},[])},qtrl:function(n,t){function l(n){throw new Error("Cannot find module '"+n+"'.")}l.keys=function(){return[]},l.resolve=l,n.exports=l,l.id="qtrl"},r8OR:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=function(){function n(){}return n.prototype.ngOnInit=function(){},n.ctorParameters=function(){return[]},n}()},wQAS:function(n,t,l){"use strict";l.d(t,"a",function(){return u});var u=function(){function n(){this.title="lab 18.1"}return n}()}},[0]);
+webpackJsonp([1],{
+
+/***/ "../../../../../src async recursive":
+/***/ (function(module, exports) {
+
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = "../../../../../src async recursive";
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, ".app-component-viewer {\r\n    font-weight: 400;\r\n    margin: 20px 70px 50px 70px;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/Artemiy/prj/igc/prj/client/src/app/app.component.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,4BAA4B;CAC/B","file":"app.component.css","sourcesContent":[".app-component-viewer {\r\n    font-weight: 400;\r\n    margin: 20px 70px 50px 70px;\r\n}\r\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<md-toolbar color=\"primary\">\n\n    <span>Неофициальная страница лаборатории 18.1</span>\n    <span class=\"example-spacer\"></span>\n    <button md-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>menu</md-icon>\n    </button>\n\n</md-toolbar>\n\n<md-menu #appMenu=\"mdMenu\">\n    <button md-menu-item> Настройки</button>\n    <button md-menu-item> Помощь</button>\n</md-menu>\n\n<div class=\"app-component-viewer\">\n    <router-outlet></router-outlet>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var AppComponent = (function () {
+    function AppComponent() {
+        this.title = 'lab 18.1';
+    }
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        selector: 'app-root',
+        template: __webpack_require__("../../../../../src/app/app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__fellows_fellows_service__["a" /* FellowsService */]]
+    })
+], AppComponent);
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__fellow_list_fellow_list_component__ = __webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__fellow_detail_fellow_detail_component__ = __webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__fellow_list_fellow_list_component__["a" /* FellowListComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__fellow_detail_fellow_detail_component__["a" /* FellowDetailComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_7__app_routing__["a" /* AppRoutingModule */]
+        ],
+        providers: [],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.routing.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fellow_list_fellow_list_component__ = __webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fellow_detail_fellow_detail_component__ = __webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// https://angular.io/docs/ts/latest/guide/router.html
+
+
+
+// import { NotFoundComponent } from './not-found/not-found.component';
+// import { SearchDetailComponent } from './search-detail/search-detail.component';
+
+
+var appRoutes = [
+    {
+        path: "",
+        component: __WEBPACK_IMPORTED_MODULE_2__home_home_component__["a" /* HomeComponent */],
+        pathMatch: 'full',
+    },
+    {
+        path: "fellow",
+        component: __WEBPACK_IMPORTED_MODULE_3__fellow_list_fellow_list_component__["a" /* FellowListComponent */],
+    },
+    {
+        path: "fellow/:slug",
+        component: __WEBPACK_IMPORTED_MODULE_4__fellow_detail_fellow_detail_component__["a" /* FellowDetailComponent */],
+    }
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
+    }
+    return AppRoutingModule;
+}());
+AppRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+        ]
+    })
+], AppRoutingModule);
+
+//# sourceMappingURL=app.routing.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-detail/fellow-detail.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"fellow-detail.component.css","sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-detail/fellow-detail.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf='fellow'>\n    <md-card class=\"example-card\">\n        <md-card-header>\n            <md-card-title>{{ fellow.first_name }} {{ fellow.last_name }}</md-card-title>\n            <md-card-subtitle>к.г.-м.н.</md-card-subtitle>\n        </md-card-header>\n        <md-card-content>\n            <p>\n                {{ fellow.biography }}\n            </p>\n        </md-card-content>\n    </md-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-detail/fellow-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowDetailComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FellowDetailComponent = (function () {
+    function FellowDetailComponent(http, route, router, _fellow) {
+        this.http = http;
+        this.route = route;
+        this.router = router;
+        this._fellow = _fellow;
+    }
+    FellowDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.routeSub = this.route.params.subscribe(function (params) {
+            _this.slug = params['slug'];
+            console.log(_this.slug);
+            _this.req = _this._fellow.get(_this.slug).subscribe(function (data) {
+                _this.fellow = data;
+            });
+        });
+    };
+    FellowDetailComponent.prototype.ngOnDestroy = function () {
+        this.routeSub.unsubscribe();
+        this.req.unsubscribe();
+    };
+    return FellowDetailComponent;
+}());
+FellowDetailComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        selector: 'app-fellow-detail',
+        template: __webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _d || Object])
+], FellowDetailComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=fellow-detail.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-list/fellow-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, ".fellows-card {\r\n  margin: 10px;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/Artemiy/prj/igc/prj/client/src/app/fellow-list/fellow-list.component.css"],"names":[],"mappings":"AAAA;EACE,aAAa;CACd","file":"fellow-list.component.css","sourcesContent":[".fellows-card {\r\n  margin: 10px;\r\n}\r\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-list/fellow-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3 md-subheader>Сотрудники</h3>\n<div *ngIf='fellowsList'>\n    <md-card class=\"fellows-card\" *ngFor=\"let fellow of fellowsList\">\n        <md-card-header>\n            <md-card-title>{{ fellow.first_name }} {{ fellow.last_name }}</md-card-title>\n            <md-card-subtitle>к.г.-м.н.</md-card-subtitle>\n        </md-card-header>\n        <md-card-content>\n        </md-card-content>\n        <md-card-actions>\n            <button md-button (click)=\"goToDetail(fellow.slug)\">Перейти</button>\n        </md-card-actions>\n    </md-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellow-list/fellow-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowListComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FellowListComponent = (function () {
+    function FellowListComponent(http, router, _fellow) {
+        this.http = http;
+        this.router = router;
+        this._fellow = _fellow;
+        this.fellowsList = [];
+    }
+    FellowListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.req = this._fellow.list().subscribe(function (data) {
+            _this.fellowsList = data;
+        });
+    };
+    FellowListComponent.prototype.goToDetail = function (slug) {
+        var link = ['/fellow', slug];
+        this.router.navigate(link);
+    };
+    FellowListComponent.prototype.ngOnDestroy = function () {
+        this.req.unsubscribe();
+    };
+    return FellowListComponent;
+}());
+FellowListComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        selector: 'app-fellow-list',
+        template: __webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _c || Object])
+], FellowListComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=fellow-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/fellows/fellows.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowsService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+ // might lead to error
+
+
+var endpoint = '/api/igc/';
+var FellowsService = FellowsService_1 = (function () {
+    function FellowsService(http) {
+        this.http = http;
+    }
+    FellowsService.prototype.list = function () {
+        return this.http.get(endpoint)
+            .map(function (response) { return response.json(); })
+            .catch(FellowsService_1.handleError);
+    };
+    FellowsService.prototype.get = function (slug) {
+        return this.http.get(endpoint + slug + "/")
+            .map(function (response) { return response.json(); })
+            .catch(FellowsService_1.handleError);
+    };
+    FellowsService.handleError = function (error) {
+        // In a real world app, you might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof Response) {
+            var body = error.json() || '';
+            var err = JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '');
+        }
+        else {
+            errMsg = "Server error occurred please try again.";
+        }
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["Observable"].throw(errMsg);
+    };
+    return FellowsService;
+}());
+FellowsService = FellowsService_1 = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], FellowsService);
+
+var FellowsService_1, _a;
+//# sourceMappingURL=fellows.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"home.component.css","sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-fellow-list></app-fellow-list>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomeComponent = (function () {
+    function HomeComponent(router) {
+        this.router = router;
+        this.fellowsList = [];
+    }
+    HomeComponent.prototype.ngOnInit = function () { };
+    return HomeComponent;
+}());
+HomeComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        selector: 'app-home',
+        template: __webpack_require__("../../../../../src/app/home/home.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/home/home.component.css")],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
+], HomeComponent);
+
+var _a;
+//# sourceMappingURL=home.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/environments/environment.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false
+};
+//# sourceMappingURL=environment.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/main.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("../../../../../src/main.ts");
+
+
+/***/ })
+
+},[0]);
+//# sourceMappingURL=main.bundle.js.map
