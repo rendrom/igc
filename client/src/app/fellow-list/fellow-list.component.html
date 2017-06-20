@@ -1,14 +1,19 @@
 <h3 md-subheader>Сотрудники</h3>
+<div *ngIf='!fellowsList'>
+     <md-progress-spinner [mode]="indeterminate"></md-progress-spinner>
+</div>
 <div *ngIf='fellowsList'>
     <md-card class="fellows-card" *ngFor="let fellow of fellowsList">
         <md-card-header>
-            <md-card-title>{{ fellow.first_name }} {{ fellow.last_name }}</md-card-title>
+            <md-card-title>
+                <md-icon *ngIf="user && fellow.id == user.id">verified_user</md-icon>
+                {{ fellow.first_name }} {{ fellow.last_name }}
+            </md-card-title>
             <md-card-subtitle>к.г.-м.н.</md-card-subtitle>
         </md-card-header>
-        <md-card-content>
-        </md-card-content>
         <md-card-actions>
             <button md-button (click)="goToDetail(fellow.slug)">Перейти</button>
+            <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">Редактировать</button>
         </md-card-actions>
     </md-card>
 </div>

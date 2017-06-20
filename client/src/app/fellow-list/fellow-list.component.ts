@@ -3,6 +3,8 @@ import {FellowItem} from "../fellows/fellow";
 import {Http} from "@angular/http";
 import {Router} from "@angular/router";
 import {FellowsService} from "../fellows/fellows.service";
+import {User} from "../user";
+import {AuthenticationService} from "app/authentication.service";
 
 @Component({
   selector: 'app-fellow-list',
@@ -11,19 +13,31 @@ import {FellowsService} from "../fellows/fellows.service";
 })
 export class FellowListComponent implements OnInit, OnDestroy {
   private req: any;
+  user: User;
   fellowsList: [FellowItem] = [] as [FellowItem];
 
-  constructor(private http: Http, private router: Router, private _fellow: FellowsService) {
+  constructor(private router: Router,
+              private fellowsService: FellowsService,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
-    this.req = this._fellow.list().subscribe(data => {
+    this.req = this.fellowsService.list().subscribe(data => {
       this.fellowsList = data as [FellowItem]
-    })
+    });
+    this.user = this.authenticationService.user;
+    this.authenticationService.userUpdate.subscribe(user => {
+      this.user = user;
+    });
   }
 
   goToDetail(slug) {
     let link = ['/fellow', slug];
+    this.router.navigate(link);
+  }
+
+  goToEditDetail(slug) {
+    let link = ['/fellow/edit', slug];
     this.router.navigate(link);
   }
 

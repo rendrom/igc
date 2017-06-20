@@ -8,7 +8,7 @@ class FellowSerializer(serializers.ModelSerializer):
     # image = serializers.SerializerMethodField()
     class Meta:
         model = Fellow
-        fields = ['username', 'slug', 'first_name', "last_name"]
+        fields = ['id', 'username', 'slug', 'first_name', "last_name"]
 
     # def get_image(self, obj):
     #     if obj.image2:
@@ -22,6 +22,8 @@ class FellowDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fellow
         fields = [
+            'id',
+            'is_staff',
             'username',
             'first_name',
             "last_name",

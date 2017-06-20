@@ -1,4 +1,6 @@
 Django
 djangorestframework
+djangorestframework-jwt==1.10.0
+djoser==0.6.0
 psycopg2
 

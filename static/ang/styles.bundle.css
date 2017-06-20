@@ -4,6 +4,12 @@
   margin: 0;
 }
 
+body {
+	font-family: Helvetica;
+	background: #eee;
+  -webkit-font-smoothing: antialiased;
+}
+
 
 .example-spacer {
   -webkit-box-flex: 1;

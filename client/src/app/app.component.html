@@ -1,6 +1,6 @@
 <md-toolbar color="primary">
 
-    <span>Неофициальная страница лаборатории 18.1</span>
+    <span (click)="goToMainPage()" class="logo">Неофициальная страница лаборатории 18.1</span>
     <span class="example-spacer"></span>
     <button md-button [mdMenuTriggerFor]="appMenu">
         <md-icon>menu</md-icon>
@@ -9,7 +9,10 @@
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-    <button md-menu-item> Настройки</button>
+
+    <button md-menu-item *ngIf="!user" (click)="goToLoginPage()"> Войти</button>
+    <button md-menu-item *ngIf="user" (click)="logout()"> Выйти</button>
+    <button md-menu-item *ngIf="user"> Настройки</button>
     <button md-menu-item> Помощь</button>
 </md-menu>
 
