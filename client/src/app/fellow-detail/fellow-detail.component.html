@@ -50,7 +50,7 @@
                     </md-list-item>
                 </md-list>
             </div>
-            <div>
+            <div *ngIf="newPublication">
                 <md-input-container *ngIf="user && fellow.id == user.id" class="publications-textarea">
                     <textarea mdInput type="text" placeholder="Библиографичесая ссылка"
                               [(ngModel)]="newPublication.bibliography"></textarea>

@@ -8,11 +8,16 @@ import {FellowDetailComponent} from './fellow-detail/fellow-detail.component';
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth.guard";
+import {SigninComponent} from "./signin/signin.component";
 
 const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   },
   {
     path: "",
@@ -34,7 +39,7 @@ const appRoutes: Routes = [
     path: "fellow/edit/:slug",
     component: FellowDetailComponent,
     canActivate: [AuthGuard],
-    data: { editMode: true }
+    data: {editMode: true}
   },
   {
     path: "**",

@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from igc.api.permissions import IsStaffOrTargetUser
+from igc.api.permissions import IsStaffOrTargetUser, IsPublicationStaffOrTargetUser
 from igc.models import Fellow, Publications
 from .serializers import FellowSerializer, FellowDetailSerializer, PublicationDetailSerializer
 
@@ -56,9 +56,9 @@ class PublicationList(generics.ListCreateAPIView):
         if self.request.method in ['GET', 'OPTIONS']:
             return IsAuthenticated(),
         elif self.request.method == 'POST':
-            return IsStaffOrTargetUser(),
+            return IsPublicationStaffOrTargetUser(),
         else:
-            return IsStaffOrTargetUser(),
+            return IsPublicationStaffOrTargetUser(),
 
     def get_queryset(self):
         return Publications.objects.all()
@@ -75,9 +75,9 @@ class PublicationDetail(ModelViewSet):
         if self.request.method in ['GET', 'OPTIONS']:
             return IsAuthenticated(),
         elif self.request.method == 'POST':
-            return IsStaffOrTargetUser(),
+            return IsPublicationStaffOrTargetUser(),
         else:
-            return IsStaffOrTargetUser(),
+            return IsPublicationStaffOrTargetUser(),
 
     def get_queryset(self):
         return Publications.objects.all()

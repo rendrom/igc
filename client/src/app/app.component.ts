@@ -37,8 +37,12 @@ export class AppComponent implements OnInit {
   }
 
   goToLoginPage() {
-    let link = ['/login'];
-    this.router.navigate(link);
+    this.router.navigate(['/login']);
+  }
+
+  goToSigninPage() {
+
+    this.router.navigate(['/signin']);
   }
 
   ngOnDestroy() {

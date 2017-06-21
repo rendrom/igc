@@ -31,8 +31,9 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.user = this.authenticationService.user;
     this.authenticationService.userUpdate.subscribe(user => {
       this.user = user;
-      this.newPublication = {author: this.user.id}
+      this.makeEmptyNewPublication();
     });
+    this.makeEmptyNewPublication();
     this.routeSub = this.route.params.subscribe(params => {
       this.slug = params['slug'];
       this.req = this.fellowsService.get(this.slug).subscribe(data => {
@@ -44,11 +45,16 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
           });
       })
     });
-
   }
 
   cloneFellow() {
     this.newFellow = JSON.parse(JSON.stringify(this.fellow))
+  }
+
+  makeEmptyNewPublication() {
+    if (this.user) {
+      this.newPublication = {author: this.user.id}
+    }
   }
 
   goToEditDetail(slug) {
@@ -74,7 +80,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.fellowsService.addPublication(this.slug, this.newPublication).subscribe((params: any) => {
       if (params) {
         this.fellow.publications.push(params);
-        this.newPublication = {author: this.user.id};
+        this.makeEmptyNewPublication();
       }
     })
   }
