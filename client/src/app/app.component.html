@@ -9,7 +9,6 @@
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-
     <button md-menu-item *ngIf="!user" (click)="goToLoginPage()"> Войти</button>
     <button md-menu-item *ngIf="user" (click)="logout()"> Выйти</button>
     <button md-menu-item *ngIf="user"> Настройки</button>

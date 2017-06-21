@@ -1,3 +1,4 @@
+import {PublicationItem} from "./publication";
 export class FellowItem {
   id: number;
   slug: string;
@@ -13,6 +14,6 @@ export class FellowItem {
   email: string;
   phone: string;
 
-  publications: [any]
+  publications:Array<PublicationItem>
 
 }

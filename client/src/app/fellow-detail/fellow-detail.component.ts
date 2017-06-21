@@ -73,10 +73,15 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
   addPublication() {
     this.fellowsService.addPublication(this.slug, this.newPublication).subscribe((params: any) => {
       if (params) {
-        let bibliogrphy = params && params.bibliography;
-        this.fellow.publications.push(bibliogrphy);
+        this.fellow.publications.push(params);
         this.newPublication = {author: this.user.id};
       }
+    })
+  }
+
+  removePublication(publicationPk) {
+    this.fellowsService.removePublication(this.slug, publicationPk).subscribe(() => {
+      this.fellow.publications = this.fellow.publications.filter(x => x.pk !== publicationPk);
     })
   }
 

@@ -18,7 +18,7 @@ publications_detail = PublicationDetail.as_view({
 
 urlpatterns = [
     url(r'^$', FellowList.as_view()),
+    url(r'^(?P<slug>[\w-]+)/publications/(?P<pk>[0-9]+)/$', publications_detail),
     url(r'^(?P<slug>[\w-]+)/publications/$', PublicationList.as_view()),
-    url(r'^(?P<slug>[\w-]+)/publications/(?P<pk>[\d-]+)$', publications_detail),
     url(r'^(?P<slug>[\w-]+)/$', fellow_detail),
 ]

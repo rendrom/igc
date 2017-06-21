@@ -41,4 +41,10 @@ export class HttpClientService {
     return this.http.post(url, data, options);
   }
 
+  del(url) {
+    let headers = this.createHeader();
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete(url, options);
+  }
+
 }

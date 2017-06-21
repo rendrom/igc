@@ -38,6 +38,12 @@ export class FellowsService {
       .catch(FellowsService.handleError)
   }
 
+  removePublication(slug, pk) {
+    return this.http.del(endpoint + slug + "/publications/" + pk + "/")
+      .map(response => response.json())
+      .catch(FellowsService.handleError)
+  }
+
   private static handleError(error: any) {
     let errMsg: string;
     errMsg = "Server error occurred please try again.";

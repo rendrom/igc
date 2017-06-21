@@ -21,6 +21,11 @@ export class AuthenticationService {
       this.httpClient.addHeader('Authorization', 'JWT ' + this.token);
       this.getUser();
     }
+    this.userUpdate.subscribe(data => {
+      if (!data) {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -60,10 +65,9 @@ export class AuthenticationService {
     // clear token remove user from local storage to log user out
     this.token = null;
     this.user = null;
-    this.userUpdate.emit(null);
-    this.router.navigate(['/login']);
     localStorage.removeItem('currentUser');
     this.httpClient.removeHeader('Authorization');
+    this.userUpdate.emit(null);
   }
 }
 

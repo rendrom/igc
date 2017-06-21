@@ -16,37 +16,51 @@
             </md-card-subtitle>
         </md-card-header>
         <md-card-content>
-            <md-list>
-                <md-list-item>
-                    <md-icon>email</md-icon>
-                    <label> Адрес электронной почты: </label> {{ newFellow.email }}</md-list-item>
-                <md-list-item>
-                    <md-icon>phone</md-icon>
-                    <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>
-                <md-list-item>
-                    <md-icon>information</md-icon>
-                    <label> Биография: </label> {{ newFellow.vita }}</md-list-item>
-            </md-list>
-            <div *ngIf="fellow.publications">
-                <h4> Список публикаций: </h4>
+            <div>
                 <md-list>
-                    <md-list-item *ngFor="let publication of fellow.publications">{{ publication }}</md-list-item>
+                    <md-list-item>
+                        <md-icon>email</md-icon>
+                        <label> Адрес электронной почты: </label> {{ newFellow.email }}</md-list-item>
+                    <md-list-item>
+                        <md-icon>phone</md-icon>
+                        <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>
+                    <md-list-item>
+                        <md-icon>information</md-icon>
+                        <label> Биография: </label> {{ newFellow.vita }}</md-list-item>
                 </md-list>
-                <md-input-container *ngIf="user && fellow.id == user.id">
-                            <textarea mdInput type="text" placeholder="Добавить публикацию"
-                                      [(ngModel)]="newPublication.bibliography"></textarea>
-                </md-input-container>
-                <button md-button *ngIf="user && fellow.id == user.id"
-                        (click)="addPublication()">Добавить
+            </div>
+            <div>
+                <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">
+                    Редактировать
                 </button>
             </div>
-
-
+            <h4> Список публикаций: </h4>
+            <div *ngIf="fellow.publications && fellow.publications.length">
+                <md-list>
+                    <md-list-item *ngFor="let publication of fellow.publications">
+                        <div *ngIf="user && fellow.id == user.id">
+                            <button md-icon-button [mdMenuTriggerFor]="menu">
+                                <md-icon>more_vert</md-icon>
+                            </button>
+                            <md-menu #menu="mdMenu">
+                                <button md-menu-item (click)="removePublication(publication.pk)">Удалить</button>
+                            </md-menu>
+                        </div>
+                        {{ publication.bibliography }}
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div>
+                <md-input-container *ngIf="user && fellow.id == user.id" class="publications-textarea">
+                    <textarea mdInput type="text" placeholder="Библиографичесая ссылка"
+                              [(ngModel)]="newPublication.bibliography"></textarea>
+                </md-input-container>
+                <button md-icon-button *ngIf="user && fellow.id == user.id"
+                        (click)="addPublication()">
+                    <md-icon>add</md-icon>
+                </button>
+            </div>
         </md-card-content>
-        <md-card-actions>
-            <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">Редактировать
-            </button>
-        </md-card-actions>
     </md-card>
 
 
