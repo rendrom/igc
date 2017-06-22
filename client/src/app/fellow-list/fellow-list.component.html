@@ -6,10 +6,12 @@
     <md-card class="fellows-card" *ngFor="let fellow of fellowsList">
         <md-card-header>
             <md-card-title>
+                <h4>
                 <span *ngIf="fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name">
-                    {{ fellow.first_name }} {{ fellow.last_name }} {{ fellow.midle_name }}</span>
-                <span *ngIf="!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)">{{ fellow.user.email }}</span>
-                <md-icon *ngIf="user && fellow.user.id == user.id">verified_user</md-icon>
+                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>
+                    <span *ngIf="!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)">{{ fellow.user.email }}</span>
+                    <md-icon *ngIf="user && fellow.user.id == user.id">verified_user</md-icon>
+                </h4>
             </md-card-title>
             <md-card-subtitle>
                 <span *ngIf="fellow.post">{{ fellow.post }}</span>
@@ -20,7 +22,8 @@
         </md-card-header>
         <md-card-actions>
             <button md-button (click)="goToDetail(fellow.slug)">Перейти</button>
-            <button md-button *ngIf="user && fellow.user.id == user.id" (click)="goToEditDetail(fellow.user.slug)">Редактировать
+            <button md-button *ngIf="user && fellow.user.id == user.id" (click)="goToEditDetail(fellow.user.slug)">
+                Редактировать
             </button>
         </md-card-actions>
     </md-card>
