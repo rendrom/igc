@@ -1,7 +1,5 @@
-form {
-	width: 380px;
-	margin: 4em auto;
-	padding: 3em 2em 2em 2em;
+.mat-input-container{
+  width: 100%;
 }
 
 .group {

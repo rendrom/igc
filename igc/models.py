@@ -3,15 +3,14 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from djoser.views import User
 
-from igc.utils import unique_slug_generator
 
 
-class Fellow(AbstractUser):
-    middle_name = models.CharField('Отчество', max_length=50, blank=True)
-
-    slug = models.SlugField(unique=True, blank=True)
+class Fellow(models.Model):
+    user = models.OneToOneField(User, related_name='fellow', primary_key=True, on_delete=models.CASCADE)
 
     vita = models.TextField("Биография", blank=True)
     phone = models.CharField("Номер телеофна", max_length=100, blank=True)
@@ -25,15 +24,17 @@ class Fellow(AbstractUser):
 
     @property
     def title(self):
-        return self.username
+        return self.user.email.split("@")[0]
+
+    @property
+    def slug(self):
+        return self.user.slug
 
 
-def fellow_pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = unique_slug_generator(instance)
-
-
-pre_save.connect(fellow_pre_save_receiver, sender=Fellow)
+@receiver(post_save, sender=User)
+def create_favorites(sender, instance, created, **kwargs):
+    if created:
+        Fellow.objects.create(user=instance)
 
 
 class Publications(models.Model):

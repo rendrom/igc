@@ -28,11 +28,11 @@ export class AuthenticationService {
     });
   }
 
-  login(username: string, password: string): Observable<boolean> {
+  login(email: string, password: string): Observable<boolean> {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
-    return this.http.post('/api-token-auth/', JSON.stringify({username: username, password: password}), options)
+    return this.http.post('/api-token-auth/', JSON.stringify({email, password}), options)
       .map((response: Response) => {
         let token = response.json() && response.json().token;
         if (token) {
@@ -40,7 +40,7 @@ export class AuthenticationService {
           this.token = token;
           this.httpClient.addHeader('Authorization', 'JWT ' + this.token);
           this.getUser();
-          localStorage.setItem('currentUser', JSON.stringify({username: username, token: token}));
+          localStorage.setItem('currentUser', JSON.stringify({email, token}));
           return true;
         } else {
           return false;

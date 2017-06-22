@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
@@ -29,7 +30,7 @@ class FellowList(generics.ListAPIView):
 class FellowDetail(ModelViewSet):
     # queryset                = Video.objects.all()
     serializer_class = FellowDetailSerializer
-    lookup_field = 'slug'
+    lookup_field = 'user__slug'
     # authentication_classes = []
     permission_classes = (IsAuthenticated,)
 

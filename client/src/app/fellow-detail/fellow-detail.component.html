@@ -3,10 +3,10 @@
         <md-card-header>
             <md-card-title>
                 <h3>
-                <span *ngIf="fellow.first_name || fellow.last_name || fellow.midle_name">
-                    {{ fellow.first_name }} {{ fellow.last_name }} {{ fellow.midle_name }}</span>
-                    <span *ngIf="!(fellow.first_name || fellow.last_name || fellow.midle_name)">{{ fellow.username }}</span>
-                    <md-icon *ngIf="user && fellow.id == user.id">verified_user</md-icon>
+                <span *ngIf="fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name">
+                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>
+                    <span *ngIf="!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)">{{ fellow.user.email }}</span>
+                    <md-icon *ngIf="user && fellow.user.id == user.id">verified_user</md-icon>
                 </h3>
             </md-card-title>
             <md-card-subtitle>
@@ -20,7 +20,7 @@
                 <md-list>
                     <md-list-item>
                         <md-icon>email</md-icon>
-                        <label> Адрес электронной почты: </label> {{ newFellow.email }}</md-list-item>
+                        <label> Адрес электронной почты: </label> {{ newFellow.user.email }}</md-list-item>
                     <md-list-item>
                         <md-icon>phone</md-icon>
                         <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>
@@ -30,7 +30,7 @@
                 </md-list>
             </div>
             <div>
-                <button md-button *ngIf="user && fellow.id == user.id" (click)="goToEditDetail(fellow.slug)">
+                <button md-button *ngIf="user && fellow.user.id == user.id" (click)="goToEditDetail(fellow.slug)">
                     Редактировать
                 </button>
             </div>
@@ -38,7 +38,7 @@
             <div *ngIf="fellow.publications && fellow.publications.length">
                 <md-list>
                     <md-list-item *ngFor="let publication of fellow.publications">
-                        <div *ngIf="user && fellow.id == user.id">
+                        <div *ngIf="user && fellow.user.id == user.id">
                             <button md-icon-button [mdMenuTriggerFor]="menu">
                                 <md-icon>more_vert</md-icon>
                             </button>
@@ -51,11 +51,11 @@
                 </md-list>
             </div>
             <div *ngIf="newPublication">
-                <md-input-container *ngIf="user && fellow.id == user.id" class="publications-textarea">
+                <md-input-container *ngIf="user && fellow.user.id == user.id" class="publications-textarea">
                     <textarea mdInput type="text" placeholder="Библиографичесая ссылка"
                               [(ngModel)]="newPublication.bibliography"></textarea>
                 </md-input-container>
-                <button md-icon-button *ngIf="user && fellow.id == user.id"
+                <button md-icon-button *ngIf="user && fellow.user.id == user.id"
                         (click)="addPublication()">
                     <md-icon>add</md-icon>
                 </button>
@@ -73,19 +73,19 @@
                 <div class="group">
                     <md-input-container>
                         <input mdInput type="text" placeholder="Имя" name="first_name"
-                               [(ngModel)]="newFellow.first_name" required/>
+                               [(ngModel)]="newFellow.user.first_name" required/>
                     </md-input-container>
                 </div>
                 <div class="group">
                     <md-input-container>
                         <input mdInput type="text" placeholder="Фамилия" name="last_name"
-                               [(ngModel)]="newFellow.last_name" required/>
+                               [(ngModel)]="newFellow.user.last_name" required/>
                     </md-input-container>
                 </div>
                 <div class="group">
                     <md-input-container>
                         <input mdInput type="text" placeholder="Отчество" name="midle_name"
-                               [(ngModel)]="newFellow.midle_name"/>
+                               [(ngModel)]="newFellow.user.midle_name"/>
                     </md-input-container>
                 </div>
                 <div class="group">
@@ -121,10 +121,10 @@
             </form>
         </md-card-content>
         <md-card-actions>
-            <button md-button *ngIf="editMode && user && fellow.id == user.id" (click)="save()">
+            <button md-button *ngIf="editMode && user && fellow.user.id == user.id" (click)="save()">
                 Сохранить
             </button>
-            <button md-button *ngIf="editMode && user && fellow.id == user.id" (click)="cancel()">
+            <button md-button *ngIf="editMode && user && fellow.user.id == user.id" (click)="cancel()">
                 Отменить
             </button>
         </md-card-actions>

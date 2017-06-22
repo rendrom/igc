@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'emailauth',
     'igc'
 ]
 
@@ -101,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -120,7 +121,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-AUTH_USER_MODEL = 'igc.Fellow'
+AUTH_USER_MODEL = 'emailauth.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -131,10 +132,16 @@ REST_FRAMEWORK = {
     ),
 }
 
-
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=7200),
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7)
+}
+
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user': 'emailauth.serializers.UserSerializer'
+    },
 }
 
 try:

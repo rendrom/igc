@@ -27,7 +27,7 @@ export class FellowsService {
   }
 
   update(slug, data: FellowItem) {
-    return this.http.post(endpoint + slug + "/", data)
+    return this.http.put(endpoint + slug + "/", data)
       .map(response => response.json())
       .catch(FellowsService.handleError)
   }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../authentication.service";
+import {FellowItem} from "../fellows/fellow";
 
 @Component({
   selector: 'app-signin',
@@ -24,10 +25,10 @@ export class SigninComponent implements OnInit {
     this.loading = true;
     this.authenticationService.signin(this.model)
       .subscribe((result: any) => {
-        if (result && result.username) {
-          this.authenticationService.login(result.username, this.model.password).subscribe(user => {
-              if (user) {
-                this.router.navigate(['/fellow/edit/', result.username]);
+        if (result && result.slug) {
+          this.authenticationService.login(this.model.email, this.model.password).subscribe(data => {
+              if (data) {
+                this.router.navigate(['/fellow/edit/', result.slug]);
               }
             }
           );

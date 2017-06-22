@@ -14,3 +14,7 @@ label {
 .mat-list-item {
   font-size: 14px;
 }
+
+.mat-input-container {
+  width: 80%;
+}

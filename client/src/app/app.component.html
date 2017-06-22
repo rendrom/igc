@@ -1,6 +1,7 @@
 <md-toolbar color="primary">
 
-    <span (click)="goToMainPage()" class="logo">Неофициальная страница лаборатории 18.1</span>
+    <button md-icon-button (click)="goToMainPage()"><md-icon>home</md-icon></button>
+    <div  class="logo" (click)="goToMainPage()">IGC 18.1</div>
     <span class="example-spacer"></span>
     <button md-button [mdMenuTriggerFor]="appMenu">
         <md-icon>menu</md-icon>
