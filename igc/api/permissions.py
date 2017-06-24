@@ -14,9 +14,9 @@ class IsOwner(permissions.BasePermission):
 
 class IsPublicationStaffOrTargetUser(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        return request.user.is_staff or request.user == obj.author
+        return request.user.is_staff or request.user == obj.author.user
 
 
 class IsPublicationOwner(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        return request.user == obj.author
+        return request.user == obj.author.user
