@@ -28,7 +28,8 @@ import {FellowsService} from "./fellows/fellows.service";
 import {ExRequestOptions} from "./ex-request.service";
 import {UserService} from "app/user.service";
 import {HttpClientService} from "./http-client.service";
-import { SigninComponent } from './signin/signin.component';
+import {SigninComponent} from './signin/signin.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SigninComponent } from './signin/signin.component';
     FellowDetailComponent,
     NotFoundComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth.guard";
 import {SigninComponent} from "./signin/signin.component";
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
   {
     path: "",

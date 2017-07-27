@@ -58,6 +58,15 @@ export class AuthenticationService {
       });
   }
 
+  resetPassword(email: string): Observable<any> {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post('/account/password/reset/', JSON.stringify({email}), options)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
   getCurrentUser() {
     // get users from api
     return this.httpClient.get('/account/me/')
