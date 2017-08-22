@@ -26,7 +26,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </md-card-content>
     </md-card>
@@ -125,12 +124,12 @@
                     </md-list-item>
                 </md-list>
             </div>
-            <div *ngIf="newPublication">
-                <md-input-container *ngIf="user && fellow.user.id == user.id" class="publications-textarea">
+            <div *ngIf="newPublication" fxLayout="row" fxLayoutAlign="space-between center" >
+                <md-input-container *ngIf="user && fellow.user.id == user.id" fxFlex="90" class="publications-textarea">
                     <textarea mdInput type="text" placeholder="Библиографичесая ссылка"
                               [(ngModel)]="newPublication.bibliography"></textarea>
                 </md-input-container>
-                <button md-icon-button *ngIf="user && fellow.user.id == user.id"
+                <button md-icon-button *ngIf="user && fellow.user.id == user.id" fxFlex="5"
                         (click)="addPublication()">
                     <md-icon>add</md-icon>
                 </button>

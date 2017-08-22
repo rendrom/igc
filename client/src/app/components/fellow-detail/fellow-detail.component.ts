@@ -103,10 +103,11 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.req.unsubscribe();
   }
 
-  get fields() {
+  getFields(model) {
     let fields = [
       {
-        model: this.fellow.user,
+        model: model,
+        subModel: "user",
         fields: [
           {name: "first_name", title: "Имя"},
           {name: "last_name", title: "Фамилия"},
@@ -115,7 +116,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
         ]
       },
       {
-        model: this.fellow,
+        model: model,
         fields: [
           {name: "post", title: "Должность"},
           {name: "post_sci", title: "Учёная степень"},

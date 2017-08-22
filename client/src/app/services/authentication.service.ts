@@ -1,11 +1,11 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {Http, Headers, Response, RequestOptions, RequestMethod} from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
+import {Router} from '@angular/router';
+import {User} from '../user';
+import {HttpClientService} from './http-client.service';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map'
-import {Router} from "@angular/router";
-import {UserService} from "./user.service";
-import {User} from "../user";
-import {HttpClientService} from "./http-client.service";
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthenticationService {
@@ -79,13 +79,19 @@ export class AuthenticationService {
   getCurrentUser() {
     // get users from api
     return this.httpClient.get('/account/me/')
-      .map((response: Response) => response.json());
+      .map((response: Response) => response.json())
   }
 
   getUser() {
     this.getCurrentUser().subscribe(data => {
-      this.user = data;
-      this.userUpdate.emit(this.user);
+      if (data) {
+        this.user = data;
+        this.userUpdate.emit(this.user);
+      } else {
+        this.logout();
+      }
+    }, () => {
+      this.logout()
     })
   }
 
