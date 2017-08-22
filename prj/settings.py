@@ -148,12 +148,23 @@ DJOSER = {
     # 'SEND_ACTIVATION_EMAIL': True,
 }
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_TLS = True
+# For development only
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_HOST_USER = 'rendrom@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+
+# Gmail config example
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'rendrom@gmail.com'
+# EMAIL_HOST_PASSWORD = ''
+
+# Webfaction config example
+# EMAIL_HOST = 'smtp.webfaction.com'
+# EMAIL_HOST_USER = '<mailbox>'
+# EMAIL_HOST_PASSWORD = '<password>'
+# DEFAULT_FROM_EMAIL = '<address>'
+# SERVER_EMAIL = '<address>'
 
 try:
     from prj.local_settings import *
