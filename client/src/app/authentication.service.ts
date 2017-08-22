@@ -67,6 +67,15 @@ export class AuthenticationService {
       });
   }
 
+  resetPasswordConfirm({uid, token, new_password}): Observable<any> {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post('/account/password/reset/confirm/', JSON.stringify({uid, token, new_password}), options)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
   getCurrentUser() {
     // get users from api
     return this.httpClient.get('/account/me/')

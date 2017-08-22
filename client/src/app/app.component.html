@@ -10,8 +10,9 @@
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-    <button md-menu-item *ngIf="!user" (click)="goToSigninPage()"> Регистрация</button>
-    <button md-menu-item *ngIf="!user" (click)="goToLoginPage()"> Войти</button>
+    <button md-menu-item *ngIf="!user" routerLink="/login"> Войти</button>
+    <button md-menu-item *ngIf="!user" routerLink="/signin"> Регистрация</button>
+    <button md-menu-item *ngIf="!user" routerLink="/password/reset"> Восстановить пароль</button>
     <button md-menu-item *ngIf="user" (click)="logout()"> Выйти</button>
     <button md-menu-item *ngIf="user"> Настройки</button>
     <button md-menu-item> Помощь</button>

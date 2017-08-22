@@ -1,15 +1,15 @@
-webpackJsonp([1],{
+webpackJsonp(["main"],{
 
-/***/ "../../../../../src async recursive":
+/***/ "../../../../../src/$$_gendir lazy recursive":
 /***/ (function(module, exports) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
+function webpackEmptyAsyncContext(req) {
+	return new Promise(function(resolve, reject) { reject(new Error("Cannot find module '" + req + "'.")); });
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../src async recursive";
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-component-viewer {\n    font-weight: 400;\n    margin: 20px 70px 50px 70px;\n}\n\n.logo {\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/app.component.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,4BAA4B;CAC/B;;AAED;EACE,gBAAgB;CACjB","file":"app.component.css","sourcesContent":[".app-component-viewer {\n    font-weight: 400;\n    margin: 20px 70px 50px 70px;\n}\n\n.logo {\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ".app-component-viewer {\r\n    font-weight: 400;\r\n    margin: 20px 70px 50px 70px;\r\n}\r\n\r\n.logo {\r\n  cursor: pointer;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/rendr/prj/igc/prj/client/src/app/app.component.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,4BAA4B;CAC/B;;AAED;EACE,gBAAgB;CACjB","file":"app.component.css","sourcesContent":[".app-component-viewer {\r\n    font-weight: 400;\r\n    margin: 20px 70px 50px 70px;\r\n}\r\n\r\n.logo {\r\n  cursor: pointer;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-toolbar color=\"primary\">\n\n    <button md-icon-button (click)=\"goToMainPage()\"><md-icon>home</md-icon></button>\n    <div  class=\"logo\" (click)=\"goToMainPage()\">IGC 18.1</div>\n    <span class=\"example-spacer\"></span>\n    <button md-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>menu</md-icon>\n    </button>\n\n</md-toolbar>\n\n<md-menu #appMenu=\"mdMenu\">\n    <button md-menu-item *ngIf=\"!user\" (click)=\"goToSigninPage()\"> Регистрация</button>\n    <button md-menu-item *ngIf=\"!user\" (click)=\"goToLoginPage()\"> Войти</button>\n    <button md-menu-item *ngIf=\"user\" (click)=\"logout()\"> Выйти</button>\n    <button md-menu-item *ngIf=\"user\"> Настройки</button>\n    <button md-menu-item> Помощь</button>\n</md-menu>\n\n<div class=\"app-component-viewer\">\n    <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<md-toolbar color=\"primary\">\n\n    <button md-icon-button (click)=\"goToMainPage()\"><md-icon>home</md-icon></button>\n    <div  class=\"logo\" (click)=\"goToMainPage()\">IGC 18.1</div>\n    <span class=\"example-spacer\"></span>\n    <button md-button [mdMenuTriggerFor]=\"appMenu\">\n        <md-icon>menu</md-icon>\n    </button>\n\n</md-toolbar>\n\n<md-menu #appMenu=\"mdMenu\">\n    <button md-menu-item *ngIf=\"!user\" routerLink=\"/login\"> Войти</button>\n    <button md-menu-item *ngIf=\"!user\" routerLink=\"/signin\"> Регистрация</button>\n    <button md-menu-item *ngIf=\"!user\" routerLink=\"/password/reset\"> Восстановить пароль</button>\n    <button md-menu-item *ngIf=\"user\" (click)=\"logout()\"> Выйти</button>\n    <button md-menu-item *ngIf=\"user\"> Настройки</button>\n    <button md-menu-item> Помощь</button>\n</md-menu>\n\n<div class=\"app-component-viewer\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -42,11 +42,11 @@ module.exports = "<md-toolbar color=\"primary\">\n\n    <button md-icon-button (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81,22 +81,17 @@ var AppComponent = (function () {
     AppComponent.prototype.logout = function () {
         this.authenticationService.logout();
     };
-    AppComponent.prototype.goToLoginPage = function () {
-        this.router.navigate(['/login']);
-    };
-    AppComponent.prototype.goToSigninPage = function () {
-        this.router.navigate(['/signin']);
-    };
     AppComponent.prototype.ngOnDestroy = function () {
+        this.authenticationService.userUpdate.unsubscribe();
     };
     AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")],
             providers: [__WEBPACK_IMPORTED_MODULE_1__fellows_fellows_service__["a" /* FellowsService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
     ], AppComponent);
     return AppComponent;
     var _a, _b;
@@ -110,6 +105,7 @@ var AppComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
@@ -130,14 +126,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_app_user_service__ = __webpack_require__("../../../../../src/app/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__http_client_service__ = __webpack_require__("../../../../../src/app/http-client.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__signin_signin_component__ = __webpack_require__("../../../../../src/app/signin/signin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/reset-password/reset-password.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__password_reset_password_reset_component__ = __webpack_require__("../../../../../src/app/password-reset/password-reset.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__password_reset_confirm_password_reset_confirm_component__ = __webpack_require__("../../../../../src/app/password-reset-confirm/password-reset-confirm.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -163,7 +160,7 @@ var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
@@ -172,21 +169,22 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_11__not_found_not_found_component__["a" /* NotFoundComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_19__signin_signin_component__["a" /* SigninComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
+                __WEBPACK_IMPORTED_MODULE_20__password_reset_password_reset_component__["a" /* PasswordResetComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__password_reset_confirm_password_reset_confirm_component__["a" /* PasswordResetConfirmComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MdButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdMenuModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdListModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdCardModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdIconModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdListModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdCardModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["h" /* MdToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdIconModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_material__["g" /* MdProgressSpinnerModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["h" /* MdInputModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdInputModule */],
                 __WEBPACK_IMPORTED_MODULE_7__app_routing__["a" /* AppRoutingModule */]
             ],
             providers: [
@@ -211,6 +209,7 @@ var AppModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
@@ -220,8 +219,8 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__auth_guard__ = __webpack_require__("../../../../../src/app/auth.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__ = __webpack_require__("../../../../../src/app/signin/signin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/reset-password/reset-password.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__password_reset_password_reset_component__ = __webpack_require__("../../../../../src/app/password-reset/password-reset.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_app_password_reset_confirm_password_reset_confirm_component__ = __webpack_require__("../../../../../src/app/password-reset-confirm/password-reset-confirm.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,6 +228,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 // https://angular.io/docs/ts/latest/guide/router.html
+
 
 
 
@@ -249,8 +249,12 @@ var appRoutes = [
         component: __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__["a" /* SigninComponent */]
     },
     {
-        path: 'reset-password',
-        component: __WEBPACK_IMPORTED_MODULE_9__reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
+        path: 'password/reset',
+        component: __WEBPACK_IMPORTED_MODULE_9__password_reset_password_reset_component__["a" /* PasswordResetComponent */]
+    },
+    {
+        path: 'password/reset/confirm/:uid/:token',
+        component: __WEBPACK_IMPORTED_MODULE_10_app_password_reset_confirm_password_reset_confirm_component__["a" /* PasswordResetConfirmComponent */]
     },
     {
         path: "",
@@ -283,12 +287,12 @@ var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(appRoutes)
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
+                __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]
             ]
         })
     ], AppRoutingModule);
@@ -303,9 +307,9 @@ var AppRoutingModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -329,8 +333,8 @@ var AuthGuard = (function () {
         return false;
     };
     AuthGuard = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
     ], AuthGuard);
     return AuthGuard;
     var _a;
@@ -344,13 +348,13 @@ var AuthGuard = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_client_service__ = __webpack_require__("../../../../../src/app/http-client.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -371,7 +375,7 @@ var AuthenticationService = (function () {
         this.http = http;
         this.httpClient = httpClient;
         this.router = router;
-        this.userUpdate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
+        this.userUpdate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
@@ -388,7 +392,7 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.login = function (email, password) {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.post('/api-token-auth/', JSON.stringify({ email: email, password: password }), options)
             .map(function (response) {
             var token = response.json() && response.json().token;
@@ -407,7 +411,7 @@ var AuthenticationService = (function () {
     };
     AuthenticationService.prototype.signin = function (data) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.post('/account/register/', JSON.stringify(data), options)
             .map(function (response) {
             return response.json();
@@ -415,8 +419,17 @@ var AuthenticationService = (function () {
     };
     AuthenticationService.prototype.resetPassword = function (email) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.post('/account/password/reset/', JSON.stringify({ email: email }), options)
+            .map(function (response) {
+            return response.json();
+        });
+    };
+    AuthenticationService.prototype.resetPasswordConfirm = function (_a) {
+        var uid = _a.uid, token = _a.token, new_password = _a.new_password;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
+        return this.http.post('/account/password/reset/confirm/', JSON.stringify({ uid: uid, token: token, new_password: new_password }), options)
             .map(function (response) {
             return response.json();
         });
@@ -442,8 +455,8 @@ var AuthenticationService = (function () {
         this.userUpdate.emit(null);
     };
     AuthenticationService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
     ], AuthenticationService);
     return AuthenticationService;
     var _a, _b, _c;
@@ -457,9 +470,9 @@ var AuthenticationService = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExRequestOptions; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExRequestOptions; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -495,11 +508,11 @@ var ExRequestOptions = (function (_super) {
             return parts.pop().split(";").shift();
     };
     ExRequestOptions = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [])
     ], ExRequestOptions);
     return ExRequestOptions;
-}(__WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* BaseRequestOptions */]));
+}(__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* BaseRequestOptions */]));
 
 //# sourceMappingURL=ex-request.service.js.map
 
@@ -513,7 +526,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "form {\n  margin: 20px 0;\n}\n\nlabel {\n  color: #999;\n  font-size: 15px;\n}\n\n.publications-textarea {\n  width: 350px;\n}\n\n.mat-list-item {\n  font-size: 14px;\n}\n\n.mat-input-container {\n  width: 80%;\n}\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/fellow-detail/fellow-detail.component.css"],"names":[],"mappings":"AAAA;EACE,eAAe;CAChB;;AAED;EACE,YAAY;EACZ,gBAAgB;CACjB;;AAED;EACE,aAAa;CACd;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,WAAW;CACZ","file":"fellow-detail.component.css","sourcesContent":["form {\n  margin: 20px 0;\n}\n\nlabel {\n  color: #999;\n  font-size: 15px;\n}\n\n.publications-textarea {\n  width: 350px;\n}\n\n.mat-list-item {\n  font-size: 14px;\n}\n\n.mat-input-container {\n  width: 80%;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "form {\r\n  margin: 20px 0;\r\n}\r\n\r\nlabel {\r\n  color: #999;\r\n  font-size: 15px;\r\n}\r\n\r\n.publications-textarea {\r\n  width: 350px;\r\n}\r\n\r\n.mat-list-item {\r\n  font-size: 14px;\r\n}\r\n\r\n.mat-input-container {\r\n  width: 80%;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/rendr/prj/igc/prj/client/src/app/fellow-detail/fellow-detail.component.css"],"names":[],"mappings":"AAAA;EACE,eAAe;CAChB;;AAED;EACE,YAAY;EACZ,gBAAgB;CACjB;;AAED;EACE,aAAa;CACd;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,WAAW;CACZ","file":"fellow-detail.component.css","sourcesContent":["form {\r\n  margin: 20px 0;\r\n}\r\n\r\nlabel {\r\n  color: #999;\r\n  font-size: 15px;\r\n}\r\n\r\n.publications-textarea {\r\n  width: 350px;\r\n}\r\n\r\n.mat-list-item {\r\n  font-size: 14px;\r\n}\r\n\r\n.mat-input-container {\r\n  width: 80%;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -526,7 +539,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/fellow-detail/fellow-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='fellow' xmlns=\"http://www.w3.org/1999/html\">\n    <md-card class=\"example-card\" *ngIf=\"!editMode\">\n        <md-card-header>\n            <md-card-title>\n                <h3>\n                <span *ngIf=\"fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name\">\n                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>\n                    <span *ngIf=\"!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)\">{{ fellow.user.email }}</span>\n                    <md-icon *ngIf=\"user && fellow.user.id == user.id\">verified_user</md-icon>\n                </h3>\n            </md-card-title>\n            <md-card-subtitle>\n                <span *ngIf=\"fellow.post\">{{ fellow.post }}</span>\n                <span *ngIf=\"fellow.post_sci\"> {{ fellow.post_sci }}</span>\n                <span *ngIf=\"fellow.post_academy\"> {{ post_academy }}</span>\n            </md-card-subtitle>\n        </md-card-header>\n        <md-card-content>\n            <div>\n                <md-list>\n                    <md-list-item>\n                        <md-icon>email</md-icon>\n                        <label> Адрес электронной почты: </label> {{ newFellow.user.email }}</md-list-item>\n                    <md-list-item>\n                        <md-icon>phone</md-icon>\n                        <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>\n                    <md-list-item>\n                        <md-icon>information</md-icon>\n                        <label> Биография: </label> {{ newFellow.vita }}</md-list-item>\n                </md-list>\n            </div>\n            <div>\n                <button md-button *ngIf=\"user && fellow.user.id == user.id\" (click)=\"goToEditDetail(fellow.slug)\">\n                    Редактировать\n                </button>\n            </div>\n            <h4> Список публикаций: </h4>\n            <div *ngIf=\"fellow.publications && fellow.publications.length\">\n                <md-list>\n                    <md-list-item *ngFor=\"let publication of fellow.publications\">\n                        <div *ngIf=\"user && fellow.user.id == user.id\">\n                            <button md-icon-button [mdMenuTriggerFor]=\"menu\">\n                                <md-icon>more_vert</md-icon>\n                            </button>\n                            <md-menu #menu=\"mdMenu\">\n                                <button md-menu-item (click)=\"removePublication(publication.pk)\">Удалить</button>\n                            </md-menu>\n                        </div>\n                        {{ publication.bibliography }}\n                    </md-list-item>\n                </md-list>\n            </div>\n            <div *ngIf=\"newPublication\">\n                <md-input-container *ngIf=\"user && fellow.user.id == user.id\" class=\"publications-textarea\">\n                    <textarea mdInput type=\"text\" placeholder=\"Библиографичесая ссылка\"\n                              [(ngModel)]=\"newPublication.bibliography\"></textarea>\n                </md-input-container>\n                <button md-icon-button *ngIf=\"user && fellow.user.id == user.id\"\n                        (click)=\"addPublication()\">\n                    <md-icon>add</md-icon>\n                </button>\n            </div>\n        </md-card-content>\n    </md-card>\n\n\n    <md-card class=\"example-card\" *ngIf=\"editMode\">\n        <md-card-header>\n            Редактирование учётной записи\n        </md-card-header>\n        <md-card-content>\n            <form name=\"form\" novalidate>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Имя\" name=\"first_name\"\n                               [(ngModel)]=\"newFellow.user.first_name\" required/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Фамилия\" name=\"last_name\"\n                               [(ngModel)]=\"newFellow.user.last_name\" required/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Отчество\" name=\"midle_name\"\n                               [(ngModel)]=\"newFellow.user.midle_name\"/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Должность\" name=\"post\"\n                               [(ngModel)]=\"newFellow.post\"/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Учёная степень\" name=\"post_sci\"\n                               [(ngModel)]=\"newFellow.post_sci\"/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"text\" placeholder=\"Учёное звание\" name=\"post_academy\"\n                               [(ngModel)]=\"newFellow.post_academy\"/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <input mdInput type=\"tel\" placeholder=\"Номер телефлна\" name=\"phone\"\n                               [(ngModel)]=\"newFellow.phone\"/>\n                    </md-input-container>\n                </div>\n                <div class=\"group\">\n                    <md-input-container>\n                        <textarea mdInput type=\"text\" placeholder=\"Биография\" name=\"vita\"\n                                  [(ngModel)]=\"newFellow.vita\"></textarea>\n                    </md-input-container>\n                </div>\n            </form>\n        </md-card-content>\n        <md-card-actions>\n            <button md-button *ngIf=\"editMode && user && fellow.user.id == user.id\" (click)=\"save()\">\n                Сохранить\n            </button>\n            <button md-button *ngIf=\"editMode && user && fellow.user.id == user.id\" (click)=\"cancel()\">\n                Отменить\n            </button>\n        </md-card-actions>\n    </md-card>\n\n</div>\n"
+module.exports = "<div *ngIf='fellow' xmlns=\"http://www.w3.org/1999/html\">\r\n    <md-card class=\"example-card\" *ngIf=\"!editMode\">\r\n        <md-card-header>\r\n            <md-card-title>\r\n                <h3>\r\n                <span *ngIf=\"fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name\">\r\n                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>\r\n                    <span *ngIf=\"!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)\">{{ fellow.user.email }}</span>\r\n                    <md-icon *ngIf=\"user && fellow.user.id == user.id\">verified_user</md-icon>\r\n                </h3>\r\n            </md-card-title>\r\n            <md-card-subtitle>\r\n                <span *ngIf=\"fellow.post\">{{ fellow.post }}</span>\r\n                <span *ngIf=\"fellow.post_sci\"> {{ fellow.post_sci }}</span>\r\n                <span *ngIf=\"fellow.post_academy\"> {{ post_academy }}</span>\r\n            </md-card-subtitle>\r\n        </md-card-header>\r\n        <md-card-content>\r\n            <div>\r\n                <md-list>\r\n                    <md-list-item>\r\n                        <md-icon>email</md-icon>\r\n                        <label> Адрес электронной почты: </label> {{ newFellow.user.email }}</md-list-item>\r\n                    <md-list-item>\r\n                        <md-icon>phone</md-icon>\r\n                        <label> Номер телеона: </label> {{ newFellow.phone }}</md-list-item>\r\n                    <md-list-item>\r\n                        <md-icon>information</md-icon>\r\n                        <label> Биография: </label> {{ newFellow.vita }}</md-list-item>\r\n                </md-list>\r\n            </div>\r\n            <div>\r\n                <button md-button *ngIf=\"user && fellow.user.id == user.id\" (click)=\"goToEditDetail(fellow.slug)\">\r\n                    Редактировать\r\n                </button>\r\n            </div>\r\n            <h4> Список публикаций: </h4>\r\n            <div *ngIf=\"fellow.publications && fellow.publications.length\">\r\n                <md-list>\r\n                    <md-list-item *ngFor=\"let publication of fellow.publications\">\r\n                        <div *ngIf=\"user && fellow.user.id == user.id\">\r\n                            <button md-icon-button [mdMenuTriggerFor]=\"menu\">\r\n                                <md-icon>more_vert</md-icon>\r\n                            </button>\r\n                            <md-menu #menu=\"mdMenu\">\r\n                                <button md-menu-item (click)=\"removePublication(publication.pk)\">Удалить</button>\r\n                            </md-menu>\r\n                        </div>\r\n                        {{ publication.bibliography }}\r\n                    </md-list-item>\r\n                </md-list>\r\n            </div>\r\n            <div *ngIf=\"newPublication\">\r\n                <md-input-container *ngIf=\"user && fellow.user.id == user.id\" class=\"publications-textarea\">\r\n                    <textarea mdInput type=\"text\" placeholder=\"Библиографичесая ссылка\"\r\n                              [(ngModel)]=\"newPublication.bibliography\"></textarea>\r\n                </md-input-container>\r\n                <button md-icon-button *ngIf=\"user && fellow.user.id == user.id\"\r\n                        (click)=\"addPublication()\">\r\n                    <md-icon>add</md-icon>\r\n                </button>\r\n            </div>\r\n        </md-card-content>\r\n    </md-card>\r\n\r\n\r\n    <md-card class=\"example-card\" *ngIf=\"editMode\">\r\n        <md-card-header>\r\n            Редактирование учётной записи\r\n        </md-card-header>\r\n        <md-card-content>\r\n            <form name=\"form\" novalidate>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Имя\" name=\"first_name\"\r\n                               [(ngModel)]=\"newFellow.user.first_name\" required/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Фамилия\" name=\"last_name\"\r\n                               [(ngModel)]=\"newFellow.user.last_name\" required/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Отчество\" name=\"midle_name\"\r\n                               [(ngModel)]=\"newFellow.user.midle_name\"/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Должность\" name=\"post\"\r\n                               [(ngModel)]=\"newFellow.post\"/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Учёная степень\" name=\"post_sci\"\r\n                               [(ngModel)]=\"newFellow.post_sci\"/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"text\" placeholder=\"Учёное звание\" name=\"post_academy\"\r\n                               [(ngModel)]=\"newFellow.post_academy\"/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"tel\" placeholder=\"Номер телефлна\" name=\"phone\"\r\n                               [(ngModel)]=\"newFellow.phone\"/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <textarea mdInput type=\"text\" placeholder=\"Биография\" name=\"vita\"\r\n                                  [(ngModel)]=\"newFellow.vita\"></textarea>\r\n                    </md-input-container>\r\n                </div>\r\n            </form>\r\n        </md-card-content>\r\n        <md-card-actions>\r\n            <button md-button *ngIf=\"editMode && user && fellow.user.id == user.id\" (click)=\"save()\">\r\n                Сохранить\r\n            </button>\r\n            <button md-button *ngIf=\"editMode && user && fellow.user.id == user.id\" (click)=\"cancel()\">\r\n                Отменить\r\n            </button>\r\n        </md-card-actions>\r\n    </md-card>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -534,11 +547,11 @@ module.exports = "<div *ngIf='fellow' xmlns=\"http://www.w3.org/1999/html\">\n  
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -628,12 +641,12 @@ var FellowDetailComponent = (function () {
         this.req.unsubscribe();
     };
     FellowDetailComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-fellow-detail',
             template: __webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.html"),
             styles: [__webpack_require__("../../../../../src/app/fellow-detail/fellow-detail.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _d || Object])
     ], FellowDetailComponent);
     return FellowDetailComponent;
     var _a, _b, _c, _d;
@@ -651,7 +664,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".fellows-card {\n  margin: 10px;\n}\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/fellow-list/fellow-list.component.css"],"names":[],"mappings":"AAAA;EACE,aAAa;CACd","file":"fellow-list.component.css","sourcesContent":[".fellows-card {\n  margin: 10px;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ".fellows-card {\r\n  margin: 10px;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/rendr/prj/igc/prj/client/src/app/fellow-list/fellow-list.component.css"],"names":[],"mappings":"AAAA;EACE,aAAa;CACd","file":"fellow-list.component.css","sourcesContent":[".fellows-card {\r\n  margin: 10px;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -664,7 +677,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/fellow-list/fellow-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 md-subheader>Сотрудники</h3>\n<div *ngIf='!fellowsList'>\n    <md-progress-spinner [mode]=\"indeterminate\"></md-progress-spinner>\n</div>\n<div *ngIf='fellowsList'>\n    <md-card class=\"fellows-card\" *ngFor=\"let fellow of fellowsList\">\n        <md-card-header>\n            <md-card-title>\n                <h4>\n                <span *ngIf=\"fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name\">\n                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>\n                    <span *ngIf=\"!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)\">{{ fellow.user.email }}</span>\n                    <md-icon *ngIf=\"user && fellow.user.id == user.id\">verified_user</md-icon>\n                </h4>\n            </md-card-title>\n            <md-card-subtitle>\n                <span *ngIf=\"fellow.post\">{{ fellow.post }}</span>\n                <span *ngIf=\"fellow.post_sci\"> {{ fellow.post_sci }}</span>\n                <span *ngIf=\"fellow.post_academy\"> {{ post_academy }}</span>\n                {{ fellow.publications }}\n            </md-card-subtitle>\n        </md-card-header>\n        <md-card-actions>\n            <button md-button (click)=\"goToDetail(fellow.slug)\">Перейти</button>\n            <button md-button *ngIf=\"user && fellow.user.id == user.id\" (click)=\"goToEditDetail(fellow.user.slug)\">\n                Редактировать\n            </button>\n        </md-card-actions>\n    </md-card>\n</div>\n"
+module.exports = "<h3 md-subheader>Сотрудники</h3>\r\n<div *ngIf='!fellowsList'>\r\n    <md-progress-spinner [mode]=\"indeterminate\"></md-progress-spinner>\r\n</div>\r\n<div *ngIf='fellowsList'>\r\n    <md-card class=\"fellows-card\" *ngFor=\"let fellow of fellowsList\">\r\n        <md-card-header>\r\n            <md-card-title>\r\n                <h4>\r\n                <span *ngIf=\"fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name\">\r\n                    {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>\r\n                    <span *ngIf=\"!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)\">{{ fellow.user.email }}</span>\r\n                    <md-icon *ngIf=\"user && fellow.user.id == user.id\">verified_user</md-icon>\r\n                </h4>\r\n            </md-card-title>\r\n            <md-card-subtitle>\r\n                <span *ngIf=\"fellow.post\">{{ fellow.post }}</span>\r\n                <span *ngIf=\"fellow.post_sci\"> {{ fellow.post_sci }}</span>\r\n                <span *ngIf=\"fellow.post_academy\"> {{ post_academy }}</span>\r\n                {{ fellow.publications }}\r\n            </md-card-subtitle>\r\n        </md-card-header>\r\n        <md-card-actions>\r\n            <button md-button (click)=\"goToDetail(fellow.slug)\">Перейти</button>\r\n            <button md-button *ngIf=\"user && fellow.user.id == user.id\" (click)=\"goToEditDetail(fellow.user.slug)\">\r\n                Редактировать\r\n            </button>\r\n        </md-card-actions>\r\n    </md-card>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -672,11 +685,11 @@ module.exports = "<h3 md-subheader>Сотрудники</h3>\n<div *ngIf='!fello
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__ = __webpack_require__("../../../../../src/app/fellows/fellows.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -719,12 +732,12 @@ var FellowListComponent = (function () {
         this.req.unsubscribe();
     };
     FellowListComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-fellow-list',
             template: __webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.html"),
             styles: [__webpack_require__("../../../../../src/app/fellow-list/fellow-list.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_app_authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_app_authentication_service__["a" /* AuthenticationService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__fellows_fellows_service__["a" /* FellowsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_app_authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_app_authentication_service__["a" /* AuthenticationService */]) === "function" && _c || Object])
     ], FellowListComponent);
     return FellowListComponent;
     var _a, _b, _c;
@@ -738,6 +751,7 @@ var FellowListComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
@@ -746,7 +760,6 @@ var FellowListComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_client_service__ = __webpack_require__("../../../../../src/app/http-client.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FellowsService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -798,7 +811,7 @@ var FellowsService = (function () {
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].throw(errMsg);
     };
     FellowsService = FellowsService_1 = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */]) === "function" && _a || Object])
     ], FellowsService);
     return FellowsService;
@@ -838,9 +851,9 @@ module.exports = "<app-fellow-list></app-fellow-list>\n"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -859,12 +872,12 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () { };
     HomeComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-home',
             template: __webpack_require__("../../../../../src/app/home/home.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/home.component.css")],
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
     ], HomeComponent);
     return HomeComponent;
     var _a;
@@ -878,9 +891,9 @@ var HomeComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpClientService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpClientService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -915,27 +928,27 @@ var HttpClientService = (function () {
     };
     HttpClientService.prototype.get = function (url) {
         var headers = this.createHeader();
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.get(url, options);
     };
     HttpClientService.prototype.post = function (url, data) {
         var headers = this.createHeader();
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.post(url, data, options);
     };
     HttpClientService.prototype.put = function (url, data) {
         var headers = this.createHeader();
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.put(url, data, options);
     };
     HttpClientService.prototype.del = function (url) {
         var headers = this.createHeader();
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.delete(url, options);
     };
     HttpClientService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
     ], HttpClientService);
     return HttpClientService;
     var _a;
@@ -953,7 +966,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n.reset-password-link {\n\tcursor: pointer;\n\tmargin: 10px;\n}\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/login/login.component.css"],"names":[],"mappings":"AAAA;EACE,YAAY;CACb;;AAED;CACC,mBAAmB;CACnB;;AAED;EACE,aAAa;CACd,iBAAiB;CACjB,yBAAyB;CACzB;;AAED;CACC,gBAAgB;CAChB,aAAa;CACb","file":"login.component.css","sourcesContent":[".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n.reset-password-link {\n\tcursor: pointer;\n\tmargin: 10px;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ".reset-password-link {\r\n\tcursor: pointer;\r\n\tmargin: 10px;\r\n}\r\n", "", {"version":3,"sources":["C:/Users/rendr/prj/igc/prj/client/src/app/login/login.component.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;CAChB,aAAa;CACb","file":"login.component.css","sourcesContent":[".reset-password-link {\r\n\tcursor: pointer;\r\n\tmargin: 10px;\r\n}\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -966,7 +979,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-card>\n    <md-card-header>Войти</md-card-header>\n    <md-card-content>\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\n            <div class=\"group\">\n                <md-input-container>\n                    <input mdInput type=\"email\" placeholder=\"Адрес электронной почты\" class=\"form-control\"\n                           name=\"password\"\n                           [(ngModel)]=\"model.email\" #password=\"ngModel\"\n                           required/>\n                </md-input-container>\n            </div>\n            <div class=\"group\">\n                <md-input-container>\n                    <input mdInput type=\"password\" placeholder=\"Пароль\" class=\"form-control\" name=\"password\"\n                           [(ngModel)]=\"model.password\" #password=\"ngModel\"\n                           required/>\n                </md-input-container>\n            </div>\n            <div>\n                <div class=\"reset-password-link\" (click)=\"resetPassword()\">Забыли пароль?</div>\n            </div>\n            <div>\n                <button md-button [disabled]=\"loading\">Далее</button>\n            </div>\n        </form>\n    </md-card-content>\n</md-card>\n"
+module.exports = "<md-card>\r\n    <md-card-header>Войти</md-card-header>\r\n    <md-card-content>\r\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\r\n            <div class=\"group\">\r\n                <md-input-container>\r\n                    <input mdInput type=\"email\" placeholder=\"Адрес электронной почты\" class=\"form-control\"\r\n                           name=\"password\"\r\n                           [(ngModel)]=\"model.email\" #password=\"ngModel\"\r\n                           required/>\r\n                </md-input-container>\r\n            </div>\r\n            <div class=\"group\">\r\n                <md-input-container>\r\n                    <input mdInput type=\"password\" placeholder=\"Пароль\" class=\"form-control\" name=\"password\"\r\n                           [(ngModel)]=\"model.password\" #password=\"ngModel\"\r\n                           required/>\r\n                </md-input-container>\r\n            </div>\r\n            <div>\r\n                <div class=\"reset-password-link\" routerLink=\"/password/reset\">Забыли пароль?</div>\r\n            </div>\r\n            <div>\r\n                <button md-button [disabled]=\"loading\">Далее</button>\r\n            </div>\r\n        </form>\r\n    </md-card-content>\r\n</md-card>\r\n"
 
 /***/ }),
 
@@ -974,10 +987,10 @@ module.exports = "<md-card>\n    <md-card-header>Войти</md-card-header>\n  
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1017,16 +1030,13 @@ var LoginComponent = (function () {
             _this.loading = false;
         });
     };
-    LoginComponent.prototype.resetPassword = function () {
-        this.router.navigate(['/', 'reset-password']);
-    };
     LoginComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-login',
             template: __webpack_require__("../../../../../src/app/login/login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
     ], LoginComponent);
     return LoginComponent;
     var _a, _b;
@@ -1065,8 +1075,8 @@ module.exports = "<div class='text-center'>\n    <h1>404 - Страница не
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotFoundComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1083,7 +1093,7 @@ var NotFoundComponent = (function () {
     NotFoundComponent.prototype.ngOnInit = function () {
     };
     NotFoundComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-not-found',
             template: __webpack_require__("../../../../../src/app/not-found/not-found.component.html"),
             styles: [__webpack_require__("../../../../../src/app/not-found/not-found.component.css")]
@@ -1097,7 +1107,7 @@ var NotFoundComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/reset-password/reset-password.component.css":
+/***/ "../../../../../src/app/password-reset-confirm/password-reset-confirm.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
@@ -1105,7 +1115,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n\n\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/reset-password/reset-password.component.css"],"names":[],"mappings":"AAAA;EACE,YAAY;CACb;;AAED;CACC,mBAAmB;CACnB;;AAED;EACE,aAAa;CACd,iBAAiB;CACjB,yBAAyB;CACzB","file":"reset-password.component.css","sourcesContent":[".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n\n\n"],"sourceRoot":""}]);
+exports.push([module.i, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"password-reset-confirm.component.css","sourceRoot":""}]);
 
 // exports
 
@@ -1115,22 +1125,113 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/reset-password/reset-password.component.html":
+/***/ "../../../../../src/app/password-reset-confirm/password-reset-confirm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-card>\n    <md-card-header>Восстановить пароль</md-card-header>\n    <md-card-content>\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && resetPassword()\" #f=\"ngForm\" novalidate>\n            <div class=\"group\">\n                <md-input-container>\n                    <input mdInput type=\"email\" placeholder=\"Адрес электронной почты\" class=\"form-control\"\n                           name=\"password\"\n                           [(ngModel)]=\"model.email\" #password=\"ngModel\"\n                           required/>\n                </md-input-container>\n            </div>\n            <div>\n                <button md-button [disabled]=\"loading\">Далее</button>\n            </div>\n        </form>\n    </md-card-content>\n</md-card>\n"
+module.exports = "<md-card>\n    <md-card-header>Введите новый пароль</md-card-header>\n    <md-card-content>\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && confirm()\" #f=\"ngForm\" novalidate>\n            <div class=\"group\">\n                <md-input-container>\n                    <input mdInput type=\"password\" placeholder=\"Пароль\" class=\"form-control\" name=\"password\"\n                           [(ngModel)]=\"model.new_password\" #password=\"ngModel\"\n                           required/>\n                </md-input-container>\n            </div>\n            <div>\n                <button md-button [disabled]=\"loading\">Далее</button>\n            </div>\n        </form>\n    </md-card-content>\n</md-card>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/reset-password/reset-password.component.ts":
+/***/ "../../../../../src/app/password-reset-confirm/password-reset-confirm.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordResetConfirmComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PasswordResetConfirmComponent = (function () {
+    function PasswordResetConfirmComponent(router, route, authenticationService) {
+        this.router = router;
+        this.route = route;
+        this.authenticationService = authenticationService;
+        this.model = {};
+        this.loading = false;
+        this.error = '';
+    }
+    PasswordResetConfirmComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.routeSub = this.route.params.subscribe(function (params) {
+            _this.model.uid = params['uid'];
+            _this.model.token = params['token'];
+        });
+    };
+    PasswordResetConfirmComponent.prototype.confirm = function () {
+        var _this = this;
+        this.loading = true;
+        this.authenticationService.resetPasswordConfirm(this.model)
+            .subscribe(function (result) {
+            _this.router.navigate(['login']);
+        }, function (error) {
+            _this.error = 'Password is incorrect';
+            _this.loading = false;
+        });
+    };
+    PasswordResetConfirmComponent.prototype.ngOnDestroy = function () {
+        this.routeSub.unsubscribe();
+    };
+    PasswordResetConfirmComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-password-reset-confirm',
+            template: __webpack_require__("../../../../../src/app/password-reset-confirm/password-reset-confirm.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/password-reset-confirm/password-reset-confirm.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _c || Object])
+    ], PasswordResetConfirmComponent);
+    return PasswordResetConfirmComponent;
+    var _a, _b, _c;
+}());
+
+//# sourceMappingURL=password-reset-confirm.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/password-reset/password-reset.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(true);
+// imports
+
+
+// module
+exports.push([module.i, "\r\n\r\n\r\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"password-reset.component.css","sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/password-reset/password-reset.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n    <md-card *ngIf=\"!checkEmail\">\r\n        <md-card-header>Восстановить пароль</md-card-header>\r\n        <md-card-content>\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && resetPassword()\" #f=\"ngForm\" novalidate>\r\n                <div class=\"group\">\r\n                    <md-input-container>\r\n                        <input mdInput type=\"email\" placeholder=\"Адрес электронной почты\" class=\"form-control\"\r\n                               name=\"password\"\r\n                               [(ngModel)]=\"model.email\" #password=\"ngModel\"\r\n                               required/>\r\n                    </md-input-container>\r\n                </div>\r\n                <div>\r\n                    <button md-button [disabled]=\"loading\">Далее</button>\r\n                </div>\r\n            </form>\r\n        </md-card-content>\r\n    </md-card>\r\n    <md-card *ngIf=\"checkEmail\">Инструкция по восстановлению пароля была отправлена на указанный адрес электронной почты\r\n    </md-card>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/password-reset/password-reset.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordResetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_app_http_client_service__ = __webpack_require__("../../../../../src/app/http-client.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1144,46 +1245,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ResetPasswordComponent = (function () {
-    function ResetPasswordComponent(router, authenticationService, httpClient) {
+var PasswordResetComponent = (function () {
+    function PasswordResetComponent(router, authenticationService, httpClient) {
         this.router = router;
         this.authenticationService = authenticationService;
         this.httpClient = httpClient;
         this.model = {};
         this.loading = false;
+        this.checkEmail = false;
         this.error = '';
     }
-    ResetPasswordComponent.prototype.ngOnInit = function () {
+    PasswordResetComponent.prototype.ngOnInit = function () {
     };
-    ResetPasswordComponent.prototype.resetPassword = function () {
+    PasswordResetComponent.prototype.resetPassword = function () {
         var _this = this;
         this.authenticationService.resetPassword(this.model.email)
             .subscribe(function (result) {
-            if (result === true) {
-                _this.router.navigate(['/']);
-            }
-            else {
-                _this.error = 'Email or password is incorrect';
-                _this.loading = false;
-            }
+            _this.checkEmail = true;
         }, function (error) {
-            _this.error = 'Email or password is incorrect';
+            _this.error = 'Email is incorrect';
             _this.loading = false;
         });
     };
-    ResetPasswordComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+    PasswordResetComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-reset-password',
-            template: __webpack_require__("../../../../../src/app/reset-password/reset-password.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/reset-password/reset-password.component.css")]
+            template: __webpack_require__("../../../../../src/app/password-reset/password-reset.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/password-reset/password-reset.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_app_http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_app_http_client_service__["a" /* HttpClientService */]) === "function" && _c || Object])
-    ], ResetPasswordComponent);
-    return ResetPasswordComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_app_http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_app_http_client_service__["a" /* HttpClientService */]) === "function" && _c || Object])
+    ], PasswordResetComponent);
+    return PasswordResetComponent;
     var _a, _b, _c;
 }());
 
-//# sourceMappingURL=reset-password.component.js.map
+//# sourceMappingURL=password-reset.component.js.map
 
 /***/ }),
 
@@ -1195,7 +1291,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n\n\n", "", {"version":3,"sources":["/Users/artemiy/prj/igc_lab/client/src/app/signin/signin.component.css"],"names":[],"mappings":"AAAA;EACE,YAAY;CACb;;AAED;CACC,mBAAmB;CACnB;;AAED;EACE,aAAa;CACd,iBAAiB;CACjB,yBAAyB;CACzB","file":"signin.component.css","sourcesContent":[".mat-input-container{\n  width: 100%;\n}\n\n.group {\n\tposition: relative;\n}\n\n.mat-card {\n  width: 380px;\n\tmargin: 4em auto;\n\tpadding: 3em 2em 2em 2em;\n}\n\n\n\n"],"sourceRoot":""}]);
+exports.push([module.i, "\r\n\r\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"signin.component.css","sourceRoot":""}]);
 
 // exports
 
@@ -1216,10 +1312,10 @@ module.exports = "<md-card>\n    <md-card-header>Регистрация поль
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1264,12 +1360,12 @@ var SigninComponent = (function () {
         });
     };
     SigninComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
             selector: 'app-signin',
             template: __webpack_require__("../../../../../src/app/signin/signin.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signin/signin.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
     ], SigninComponent);
     return SigninComponent;
     var _a, _b;
@@ -1283,12 +1379,12 @@ var SigninComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1309,14 +1405,14 @@ var UserService = (function () {
     }
     UserService.prototype.getCurrentUser = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Authorization': 'JWT ' + this.authenticationService.token });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         // get users from api
         return this.http.get('/account/me/', options)
             .map(function (response) { return response.json(); });
     };
     UserService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
     ], UserService);
     return UserService;
     var _a, _b;
@@ -1356,9 +1452,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),

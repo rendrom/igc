@@ -9,7 +9,8 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth.guard";
 import {SigninComponent} from "./signin/signin.component";
-import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {PasswordResetComponent} from "./password-reset/password-reset.component";
+import {PasswordResetConfirmComponent} from "app/password-reset-confirm/password-reset-confirm.component";
 
 const appRoutes: Routes = [
   {
@@ -21,8 +22,12 @@ const appRoutes: Routes = [
     component: SigninComponent
   },
   {
-    path: 'reset-password',
-    component: ResetPasswordComponent
+    path: 'password/reset',
+    component: PasswordResetComponent
+  },
+  {
+    path: 'password/reset/confirm/:uid/:token',
+    component: PasswordResetConfirmComponent
   },
   {
     path: "",

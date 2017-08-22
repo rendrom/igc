@@ -139,10 +139,13 @@ JWT_AUTH = {
 
 
 DJOSER = {
+    'SITE_NAME': 'IGC lab 18.1',
     'SERIALIZERS': {
         'user': 'emailauth.serializers.UserSerializer'
     },
-    'PASSWORD_RESET_CONFIRM_URL': "/"
+    'PASSWORD_RESET_CONFIRM_URL': '/password/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
 }
 
 EMAIL_HOST = 'smtp.gmail.com'

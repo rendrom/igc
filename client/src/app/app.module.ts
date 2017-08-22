@@ -29,7 +29,8 @@ import {ExRequestOptions} from "./ex-request.service";
 import {UserService} from "app/user.service";
 import {HttpClientService} from "./http-client.service";
 import {SigninComponent} from './signin/signin.component';
-import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {PasswordResetComponent} from "./password-reset/password-reset.component";
+import {PasswordResetConfirmComponent} from './password-reset-confirm/password-reset-confirm.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {ResetPasswordComponent} from "./reset-password/reset-password.component"
     NotFoundComponent,
     LoginComponent,
     SigninComponent,
-    ResetPasswordComponent
+    PasswordResetComponent,
+    PasswordResetConfirmComponent
   ],
   imports: [
     BrowserModule,
