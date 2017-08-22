@@ -1,5 +1,9 @@
 <md-card>
-    <md-card-header>Регистрация пользователя</md-card-header>
+    <md-card-header>
+        <md-card-title>
+        Регистрация пользователя
+        </md-card-title>
+    </md-card-header>
     <md-card-content>
         <form name="form" (ngSubmit)="f.form.valid && signin()" #f="ngForm" novalidate>
             <div class="group">
