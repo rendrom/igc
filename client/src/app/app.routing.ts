@@ -2,15 +2,15 @@
 import {NgModule}             from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {HomeComponent} from './home/home.component';
-import {FellowListComponent} from './fellow-list/fellow-list.component';
-import {FellowDetailComponent} from './fellow-detail/fellow-detail.component';
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {LoginComponent} from "./login/login.component";
+import {HomeComponent} from './components/home/home.component';
+import {FellowListComponent} from './components/fellow-list/fellow-list.component';
+import {FellowDetailComponent} from './components/fellow-detail/fellow-detail.component';
+import {NotFoundComponent} from "./components/not-found/not-found.component";
+import {LoginComponent} from "./components/login/login.component";
 import {AuthGuard} from "./auth.guard";
-import {SigninComponent} from "./signin/signin.component";
-import {PasswordResetComponent} from "./password-reset/password-reset.component";
-import {PasswordResetConfirmComponent} from "app/password-reset-confirm/password-reset-confirm.component";
+import {SigninComponent} from "./components/signin/signin.component";
+import {PasswordResetComponent} from "./components/password-reset/password-reset.component";
+import {PasswordResetConfirmComponent} from "app/components/password-reset-confirm/password-reset-confirm.component";
 
 const appRoutes: Routes = [
   {
