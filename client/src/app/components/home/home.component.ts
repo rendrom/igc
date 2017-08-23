@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FellowItem} from "../../services/fellows/fellow";
+import {FellowItem} from "../../classes/fellow";
 
 import {Router} from "@angular/router";
 

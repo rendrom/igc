@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FellowItem} from "../../services/fellows/fellow";
+import {FellowItem} from "../../classes/fellow";
 import {Http} from "@angular/http";
 import {Router} from "@angular/router";
-import {FellowsService} from "../../services/fellows/fellows.service";
+import {FellowsService} from "../../services/fellows.service";
 import {User} from "../../user";
 import {AuthenticationService} from "app/services/authentication.service";
 

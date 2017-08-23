@@ -23,28 +23,31 @@ import {FellowListComponent} from './components/fellow-list/fellow-list.componen
 import {FellowDetailComponent} from './components/fellow-detail/fellow-detail.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {LoginComponent} from './components/login/login.component';
-import {AuthGuard} from "app/auth.guard";
+import {AuthGuard} from "./auth.guard";
 import {AuthenticationService} from "./services/authentication.service";
-import {FellowsService} from "./services/fellows/fellows.service";
+import {FellowsService} from "./services/fellows.service";
 import {ExRequestOptions} from "./services/ex-request.service";
-import {UserService} from "app/services/user.service";
+import {UserService} from "./services/user.service";
 import {HttpClientService} from "./services/http-client.service";
 import {SigninComponent} from './components/signin/signin.component';
 import {PasswordResetComponent} from "./components/password-reset/password-reset.component";
 import {PasswordResetConfirmComponent} from './components/password-reset-confirm/password-reset-confirm.component';
+import {CommunityListComponent} from "./components/community-list/community-list.component";
+import {CommunityService} from "./services/community.service";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CommunityListComponent,
     FellowListComponent,
     FellowDetailComponent,
     NotFoundComponent,
     LoginComponent,
     SigninComponent,
     PasswordResetComponent,
-    PasswordResetConfirmComponent
+    PasswordResetConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import {PasswordResetConfirmComponent} from './components/password-reset-confirm
     AppRoutingModule
   ],
   providers: [
+    CommunityService,
     FellowsService,
     AuthGuard,
     AuthenticationService,

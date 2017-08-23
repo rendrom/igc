@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {FellowItem} from "../../services/fellows/fellow";
+import {FellowItem} from "../../classes/fellow";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FellowsService} from "../../services/fellows/fellows.service";
+import {FellowsService} from "../../services/fellows.service";
 import {User} from "app/user";
 import {AuthenticationService} from "../../services/authentication.service";
-import {PublicationItem} from "../../services/fellows/publication";
+import {PublicationItem} from "../../classes/publication";
 
 
 @Component({

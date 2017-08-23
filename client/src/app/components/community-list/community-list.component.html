@@ -1,0 +1,29 @@
+<div>
+    <md-card class="fellows-card">
+        <md-card-header>
+            <md-card-title>
+                <h3>Сообщества</h3>
+            </md-card-title>
+        </md-card-header>
+        <md-card-content>
+
+            <div *ngIf='myCommunitiesList'>
+                <h4>Список ваших сообществ</h4>
+                <md-list>
+                    <md-list-item *ngFor="let community of myCommunitiesList">
+                        {{ community.name }}
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div *ngIf='communitiesList'>
+                <h4>Список публичных сообществ</h4>
+                <md-list>
+                    <md-list-item *ngFor="let community of communitiesList">
+                        {{ community.name }}
+                    </md-list-item>
+                </md-list>
+            </div>
+        </md-card-content>
+    </md-card>
+
+</div>

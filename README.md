@@ -1,7 +1,7 @@
-IGC 18.1 lab
-============
+IGC Community
+=============
 
-The site of the IGC laboratory 18.1 (A.P. Vinogradov Institute of Geochemistry SB RAS)
+The site of the IGC Community (A.P. Vinogradov Institute of Geochemistry SB RAS)
 
 ## Used technologies
 

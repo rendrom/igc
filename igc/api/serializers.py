@@ -1,8 +1,21 @@
 from rest_framework import serializers
 
 from emailauth.serializers import UserSerializer
-from igc.models import Fellow, Publications
+from igc.models import Fellow, Publications, Community
 
+
+class CommunitySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Community
+        fields = [
+            "name",
+            "is_public",
+            "open_registration",
+            "show_members",
+            "slug"
+        ]
+        read_only_fields = ['slug']
 
 class PublicationDetailSerializer(serializers.ModelSerializer):
     class Meta:
