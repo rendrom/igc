@@ -11,6 +11,7 @@ import {AuthGuard} from "./auth.guard";
 import {SigninComponent} from "./components/signin/signin.component";
 import {PasswordResetComponent} from "./components/password-reset/password-reset.component";
 import {PasswordResetConfirmComponent} from "app/components/password-reset-confirm/password-reset-confirm.component";
+import {CommunityDetailComponent} from './components/community-detail/community-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +34,11 @@ const appRoutes: Routes = [
     path: "",
     component: HomeComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "community/:slug",
+    component: CommunityDetailComponent,
     canActivate: [AuthGuard]
   },
   {

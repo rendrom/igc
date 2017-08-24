@@ -6,7 +6,6 @@ import {HttpClientService} from './http-client.service';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/observable/throw';
-import {Fellow} from "../classes/fellow";
 
 @Injectable()
 export class AuthenticationService {

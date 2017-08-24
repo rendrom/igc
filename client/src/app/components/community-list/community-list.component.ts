@@ -5,6 +5,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {Community} from "../../classes/community";
 import {CommunityService} from "../../services/community.service";
 import {CommunityMember} from "../../classes/community-member";
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-community-list',
@@ -12,12 +13,13 @@ import {CommunityMember} from "../../classes/community-member";
   styleUrls: ['./community-list.component.css']
 })
 export class CommunityListComponent implements OnInit, OnDestroy {
-  private reqList: [any] = [] as [any];
   user: User;
   communitiesList: [Community] = [] as [Community];
   myCommunitiesList: [Community] = [] as [Community];
   inactiveCommunitiesList: [Community] = [] as [Community];
   invitedCommunitiesList: [Community] = [] as [Community];
+
+  private reqList: [Subscription] = [] as [Subscription];
 
   constructor(private router: Router,
               private fellowsService: CommunityService,

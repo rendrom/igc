@@ -1,9 +1,16 @@
 from django.conf.urls import url
 
 from .views import FellowList, FellowDetail, PublicationDetail, PublicationList, AllowedCommunitiesList, \
-    MemberCommunitiesList, CommunityMemberList, CommunityMemberView
+    MemberCommunitiesList, CommunityMemberList, CommunityMemberView, CommunityDetail
 
 fellow_detail = FellowDetail.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+
+community_detail = CommunityDetail.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -35,5 +42,5 @@ urlpatterns = [
     url(r'^community/my/$', CommunityMemberList.as_view()),
     url(r'^community/member/$', community_member),
     url(r'^community/member/(?P<community__slug>[\w-]+)/$', community_member),
-    # url(r'^community/(?P<slug>[\w-]+)/$', community_detail),
+    url(r'^community/detail/(?P<slug>[\w-]+)/$', community_detail),
 ]

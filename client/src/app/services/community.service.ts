@@ -34,7 +34,7 @@ export class CommunityService {
   }
 
   get (slug) {
-    return this.http.get(endpoint + slug + "/")
+    return this.http.get(endpoint + "detail/" + slug + "/")
       .map(response => response.json())
       .catch(CommunityService.handleError)
   }
@@ -53,7 +53,7 @@ export class CommunityService {
 
   enterTheCommunity(community: Community) {
     return this.http.post(endpoint + "member/", {
-      member: this.user.id,
+      member_id: this.user.id,
       community_id: community.pk,
       is_active: true,
     })

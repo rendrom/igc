@@ -1,4 +1,5 @@
 import {Community} from "./community";
+import {Fellow} from './fellow';
 
 export class CommunityMember {
   public pk: number;
@@ -6,4 +7,5 @@ export class CommunityMember {
   public is_active: boolean;
   public is_invited: boolean;
   public community: Community;
+  public member: Fellow
 }

@@ -34,6 +34,7 @@ import {PasswordResetComponent} from "./components/password-reset/password-reset
 import {PasswordResetConfirmComponent} from './components/password-reset-confirm/password-reset-confirm.component';
 import {CommunityListComponent} from "./components/community-list/community-list.component";
 import {CommunityService} from "./services/community.service";
+import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {CommunityService} from "./services/community.service";
     SigninComponent,
     PasswordResetComponent,
     PasswordResetConfirmComponent,
+    CommunityDetailComponent,
   ],
   imports: [
     BrowserModule,
