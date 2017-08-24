@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FellowItem} from "../../classes/fellow";
+import {Fellow} from "../../classes/fellow";
 
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   private req: any;
-  fellowsList: [FellowItem] = [] as [FellowItem];
+  fellowsList: [Fellow] = [] as [Fellow];
 
   constructor(private router: Router) {
   }

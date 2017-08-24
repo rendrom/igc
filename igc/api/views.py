@@ -1,55 +1,66 @@
-from django.contrib.auth.models import User
-
-from rest_framework import generics
-from rest_framework.authentication import BasicAuthentication, SessionAuthentication
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
-from rest_framework_jwt.authentication import JSONWebTokenAuthentication
-
-from igc.api.permissions import IsStaffOrTargetUser, IsPublicationStaffOrTargetUser, IsCommunityMember
-from igc.models import Fellow, Publications, Community
-from .serializers import FellowSerializer, FellowDetailSerializer, PublicationDetailSerializer, CommunitySerializer
 from django.db.models import Q
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
+from igc.api.permissions import IsStaffOrTargetUser, IsPublicationStaffOrTargetUser, IsCommunityMember
+from igc.models import Fellow, Publications, Community, CommunityMember
+from .serializers import FellowSerializer, FellowDetailSerializer, PublicationDetailSerializer, CommunitySerializer, \
+    CommunityMemberSerializer
 
 
-class PublicCommunitiesList(generics.ListAPIView):
-    serializer_class = CommunitySerializer
+class CommunityMemberList(generics.ListAPIView):
+    serializer_class = CommunityMemberSerializer
     permission_classes = (IsAuthenticated,)
-    # authentication_classes = []
 
     def get_queryset(self):
-        return Community.objects.filter(is_public=True)
+        return CommunityMember.objects.filter(member__user=self.request.user)
 
 
-class MemberCommunitiesList(generics.ListAPIView):
-    serializer_class = CommunitySerializer
-    permission_classes = (IsAuthenticated,)
-    # authentication_classes = []
+class CommunityMemberView(ModelViewSet):
+    serializer_class = CommunityMemberSerializer
+    lookup_field = 'community__slug'
+    permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
-        return Community.objects.filter(member__member=self.request.user)
+        return CommunityMember.objects.filter(member__user=self.request.user)
+
+
+
+class CommunitiesList(generics.ListAPIView):
+    serializer_class = CommunitySerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return Community.objects.all()
+
+
+class AllowedCommunitiesList(CommunitiesList):
+    def get_queryset(self):
+        return Community.objects.filter(~Q(member__member__user=self.request.user) & Q(is_public=True))
+
+
+class MemberCommunitiesList(CommunitiesList):
+    def get_queryset(self):
+        return Community.objects.filter(member__member__user=self.request.user, member__is_active=True)
+
+
+class MemberInvitationCommunitiesList(CommunitiesList):
+    def get_queryset(self):
+        return Community.objects.filter(member__member__user=self.request.user, member__is_invited=True,
+                                        member__is_active=False)
 
 
 class FellowList(generics.ListAPIView):
     serializer_class = FellowSerializer
     permission_classes = (IsAuthenticated,)
-    # authentication_classes = []
 
     def get_queryset(self):
-        query = self.request.GET.get("q")
-        if query:
-            qs = Fellow.objects.search(query)
-        else:
-            qs = Fellow.objects.all()
-        return qs
+        return Fellow.objects.all()
 
 
 class FellowDetail(ModelViewSet):
-    # queryset                = Video.objects.all()
     serializer_class = FellowDetailSerializer
     lookup_field = 'user__slug'
-    # authentication_classes = []
     permission_classes = (IsAuthenticated,)
 
     def get_permissions(self):
@@ -65,10 +76,8 @@ class FellowDetail(ModelViewSet):
 
 
 class PublicationList(generics.ListCreateAPIView):
-    # queryset                = Video.objects.all()
     serializer_class = PublicationDetailSerializer
     lookup_field = 'pk'
-    # authentication_classes = []
     permission_classes = (IsAuthenticated,)
 
     def get_permissions(self):
@@ -84,10 +93,8 @@ class PublicationList(generics.ListCreateAPIView):
 
 
 class PublicationDetail(ModelViewSet):
-    # queryset                = Video.objects.all()
     serializer_class = PublicationDetailSerializer
     lookup_field = 'pk'
-    # authentication_classes = []
     permission_classes = (IsAuthenticated,)
 
     def get_permissions(self):
@@ -100,4 +107,3 @@ class PublicationDetail(ModelViewSet):
 
     def get_queryset(self):
         return Publications.objects.all()
-

@@ -13,7 +13,7 @@ import {
   MdToolbarModule,
   MdIconModule,
   MdProgressSpinnerModule,
-  MdInputModule
+  MdInputModule,
 } from '@angular/material';
 
 import {AppComponent} from './components/app.component';
@@ -55,6 +55,7 @@ import {CommunityService} from "./services/community.service";
     HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+
     MdButtonModule,
     MdMenuModule,
     MdListModule,
@@ -63,6 +64,7 @@ import {CommunityService} from "./services/community.service";
     MdIconModule,
     MdProgressSpinnerModule,
     MdInputModule,
+
     AppRoutingModule
   ],
   providers: [

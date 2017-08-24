@@ -374,7 +374,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/community-list/community-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <md-card class=\"fellows-card\">\n        <md-card-header>\n            <md-card-title>\n                <h3>Сообщества</h3>\n            </md-card-title>\n        </md-card-header>\n        <md-card-content>\n\n            <div *ngIf='myCommunitiesList'>\n                <h4>Список ваших сообществ</h4>\n                <md-list>\n                    <md-list-item *ngFor=\"let community of myCommunitiesList\">\n                        {{ community.name }}\n                    </md-list-item>\n                </md-list>\n            </div>\n            <div *ngIf='communitiesList'>\n                <h4>Список публичных сообществ</h4>\n                <md-list>\n                    <md-list-item *ngFor=\"let community of communitiesList\">\n                        {{ community.name }}\n                    </md-list-item>\n                </md-list>\n            </div>\n        </md-card-content>\n    </md-card>\n\n</div>\n"
+module.exports = "<div>\n    <md-card class=\"fellows-card\">\n        <md-card-header>\n            <md-card-title>\n                <h3>Сообщества</h3>\n            </md-card-title>\n        </md-card-header>\n        <md-card-content>\n\n            <div *ngIf='myCommunitiesList && myCommunitiesList.length'>\n                <md-list>\n                    <h4 md-subheader>Ваши сообщества</h4>\n                    <md-list-item *ngFor=\"let community of myCommunitiesList\">\n                        <div fxLayout=\"row\" fxFlex=\"100\" fxLayoutAlign=\"space-between center\">\n                            <div fxFlex=\"80\">{{ community.name }}</div>\n                            <div fxFlex=\"20\">\n                                <button md-button (click)=\"quitTheCommunity(community)\">\n                                    Покинуть\n                                </button>\n                            </div>\n                        </div>\n                    </md-list-item>\n                </md-list>\n            </div>\n            <div *ngIf='invitedCommunitiesList && invitedCommunitiesList.length'>\n                <md-divider></md-divider>\n                <md-list>\n                    <h4 md-subheader>Приглашения</h4>\n                    <md-list-item *ngFor=\"let community of invitedCommunitiesList\">\n                        <div fxLayout=\"row\" fxFlex=\"100\" fxLayoutAlign=\"space-between center\">\n                            <div fxFlex=\"80\">{{ community.name }}</div>\n                            <div fxFlex=\"20\">\n                                <button md-button (click)=\"acceptInvitation(community)\">\n                                    Принять\n                                </button>\n                            </div>\n                        </div>\n                    </md-list-item>\n                </md-list>\n            </div>\n            <div *ngIf='inactiveCommunitiesList && inactiveCommunitiesList.length'>\n                <md-divider></md-divider>\n                <md-list>\n                    <h4 md-subheader>Ждут подтверждения</h4>\n                    <md-list-item *ngFor=\"let community of inactiveCommunitiesList\">\n                        <div fxLayout=\"row\" fxFlex=\"100\" fxLayoutAlign=\"space-between center\">\n                            <div fxFlex=\"80\">{{ community.name }}</div>\n                            <div fxFlex=\"20\">\n                                <button md-button (click)=\"quitTheCommunity(community, inactiveCommunitiesList)\">\n                                    Отменить\n                                </button>\n                            </div>\n                        </div>\n                    </md-list-item>\n                </md-list>\n            </div>\n            <div *ngIf='communitiesList && communitiesList.length'>\n                <md-divider></md-divider>\n                <md-list>\n                    <h4 md-subheader>Список открытых сообществ</h4>\n                    <md-list-item *ngFor=\"let community of communitiesList\">\n                        <div fxLayout=\"row\" fxFlex=\"100\" fxLayoutAlign=\"space-between center\">\n                            <div fxFlex=\"80\">{{ community.name }}</div>\n                            <div fxFlex=\"20\">\n                                <button md-button (click)=\"enterTheCommunity(community)\">\n                                    Вступить\n                                </button>\n                            </div>\n                        </div>\n                    </md-list-item>\n                </md-list>\n            </div>\n        </md-card-content>\n    </md-card>\n\n</div>\n"
 
 /***/ }),
 
@@ -408,14 +408,31 @@ var CommunityListComponent = (function () {
         this.reqList = [];
         this.communitiesList = [];
         this.myCommunitiesList = [];
+        this.inactiveCommunitiesList = [];
+        this.invitedCommunitiesList = [];
     }
     CommunityListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.reqList.push(this.fellowsService.list().subscribe(function (data) {
-            _this.communitiesList = data;
+            if (data && data.length) {
+                _this.communitiesList = data;
+            }
         }));
         this.reqList.push(this.fellowsService.myList().subscribe(function (data) {
-            _this.myCommunitiesList = data;
+            if (data && data.length) {
+                data.forEach(function (x) {
+                    var community = x.community;
+                    if (x.is_active) {
+                        _this.myCommunitiesList.push(community);
+                    }
+                    else if (x.is_invited && !x.is_active) {
+                        _this.invitedCommunitiesList.push(community);
+                    }
+                    else if (!x.is_active) {
+                        _this.inactiveCommunitiesList.push(community);
+                    }
+                });
+            }
         }));
         this.user = this.authenticationService.user;
         this.reqList.push(this.authenticationService.userUpdate.subscribe(function (user) {
@@ -429,6 +446,46 @@ var CommunityListComponent = (function () {
     CommunityListComponent.prototype.goToEditDetail = function (slug) {
         var link = ['/community/edit', slug];
         this.router.navigate(link);
+    };
+    CommunityListComponent.prototype.quitTheCommunity = function (community, removeFrom) {
+        var _this = this;
+        removeFrom = removeFrom || this.myCommunitiesList;
+        this.reqList.push(this.fellowsService.quitTheCommunity(community).subscribe(function (data) {
+            var index = removeFrom.findIndex(function (x) { return x.pk === community.pk; });
+            if (index !== -1) {
+                var community_1 = removeFrom.splice(index, 1);
+                if (community_1.length && community_1[0].is_public) {
+                    _this.communitiesList.unshift(community_1[0]);
+                }
+            }
+        }, function (error) {
+        }));
+    };
+    CommunityListComponent.prototype.acceptInvitation = function (community) {
+        var _this = this;
+        this.reqList.push(this.fellowsService.acceptInvitation(community).subscribe(function (data) {
+            var index = _this.invitedCommunitiesList.findIndex(function (x) { return x.pk === community.pk; });
+            if (index !== -1) {
+                var community_2 = _this.invitedCommunitiesList.splice(index, 1);
+                if (community_2.length) {
+                    _this.myCommunitiesList.unshift(community_2[0]);
+                }
+            }
+        }, function (error) {
+        }));
+    };
+    CommunityListComponent.prototype.enterTheCommunity = function (community) {
+        var _this = this;
+        this.reqList.push(this.fellowsService.enterTheCommunity(community).subscribe(function (data) {
+            var index = _this.communitiesList.findIndex(function (x) { return x.pk === community.pk; });
+            if (index !== -1) {
+                var community_3 = _this.communitiesList.splice(index, 1);
+                if (community_3.length) {
+                    _this.myCommunitiesList.unshift(community_3[0]);
+                }
+            }
+        }, function (error) {
+        }));
     };
     CommunityListComponent.prototype.ngOnDestroy = function () {
         this.reqList.forEach(function (x) { return x.unsubscribe(); });
@@ -1338,6 +1395,7 @@ var AuthenticationService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__http_client_service__ = __webpack_require__("../../../../../src/app/services/http-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1352,10 +1410,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var endpoint = '/api/igc/community/';
 var CommunityService = (function () {
-    function CommunityService(http) {
+    function CommunityService(http, authenticationService) {
+        var _this = this;
         this.http = http;
+        this.authenticationService = authenticationService;
+        this.user = this.authenticationService.user;
+        this.authenticationService.userUpdate.subscribe(function (user) {
+            _this.user = user;
+        });
     }
     CommunityService_1 = CommunityService;
     CommunityService.prototype.list = function () {
@@ -1373,6 +1438,25 @@ var CommunityService = (function () {
             .map(function (response) { return response.json(); })
             .catch(CommunityService_1.handleError);
     };
+    CommunityService.prototype.quitTheCommunity = function (community) {
+        return this.http.del(endpoint + "member/" + community.slug + "/")
+            .map(function (response) { return response.json(); })
+            .catch(CommunityService_1.handleError);
+    };
+    CommunityService.prototype.acceptInvitation = function (community) {
+        return this.http.put(endpoint + "member/" + community.slug + "/", { is_active: true })
+            .map(function (response) { return response.json(); })
+            .catch(CommunityService_1.handleError);
+    };
+    CommunityService.prototype.enterTheCommunity = function (community) {
+        return this.http.post(endpoint + "member/", {
+            member: this.user.id,
+            community_id: community.pk,
+            is_active: true,
+        })
+            .map(function (response) { return response.json(); })
+            .catch(CommunityService_1.handleError);
+    };
     CommunityService.prototype.update = function (slug, data) {
         return this.http.put(endpoint + slug + "/", data)
             .map(function (response) { return response.json(); })
@@ -1385,10 +1469,10 @@ var CommunityService = (function () {
     };
     CommunityService = CommunityService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__http_client_service__["a" /* HttpClientService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
     ], CommunityService);
     return CommunityService;
-    var CommunityService_1, _a;
+    var CommunityService_1, _a, _b;
 }());
 
 //# sourceMappingURL=community.service.js.map
@@ -1576,6 +1660,11 @@ var HttpClientService = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });
         return this.http.put(url, data, options);
     };
+    /**
+     * use delete instead
+     * @deprecated
+     * @param url
+     */
     HttpClientService.prototype.del = function (url) {
         var headers = this.createHeader();
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers });

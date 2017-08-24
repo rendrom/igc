@@ -29,7 +29,7 @@ export class HttpClientService {
     return headers;
   }
 
-  get(url) {
+  get (url) {
     let headers = this.createHeader();
     let options = new RequestOptions({headers: headers});
     return this.http.get(url, options);
@@ -47,6 +47,11 @@ export class HttpClientService {
     return this.http.put(url, data, options);
   }
 
+  /**
+   * use delete instead
+   * @deprecated
+   * @param url
+   */
   del(url) {
     let headers = this.createHeader();
     let options = new RequestOptions({headers: headers});

@@ -1,6 +1,6 @@
-import {PublicationItem} from "./publication";
+import {Publication} from "./publication";
 import {User} from "../user";
-export class FellowItem {
+export class Fellow {
 
   user: User;
 
@@ -10,5 +10,5 @@ export class FellowItem {
   vita: string;
   phone: string;
 
-  publications:Array<PublicationItem>
+  publications:Array<Publication>
 }

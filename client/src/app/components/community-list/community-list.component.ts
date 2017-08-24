@@ -2,8 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {User} from "../../user";
 import {AuthenticationService} from "../../services/authentication.service";
-import {CommunityItem} from "../../classes/community";
+import {Community} from "../../classes/community";
 import {CommunityService} from "../../services/community.service";
+import {CommunityMember} from "../../classes/community-member";
 
 @Component({
   selector: 'app-community-list',
@@ -13,8 +14,10 @@ import {CommunityService} from "../../services/community.service";
 export class CommunityListComponent implements OnInit, OnDestroy {
   private reqList: [any] = [] as [any];
   user: User;
-  communitiesList: [CommunityItem] = [] as [CommunityItem];
-  myCommunitiesList: [CommunityItem] = [] as [CommunityItem];
+  communitiesList: [Community] = [] as [Community];
+  myCommunitiesList: [Community] = [] as [Community];
+  inactiveCommunitiesList: [Community] = [] as [Community];
+  invitedCommunitiesList: [Community] = [] as [Community];
 
   constructor(private router: Router,
               private fellowsService: CommunityService,
@@ -23,10 +26,23 @@ export class CommunityListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.reqList.push(this.fellowsService.list().subscribe(data => {
-      this.communitiesList = data as [CommunityItem]
+      if (data && data.length) {
+        this.communitiesList = data as [Community]
+      }
     }));
     this.reqList.push(this.fellowsService.myList().subscribe(data => {
-      this.myCommunitiesList = data as [CommunityItem]
+      if (data && data.length) {
+        data.forEach((x: CommunityMember) => {
+          let community = x.community;
+          if (x.is_active) {
+            this.myCommunitiesList.push(community);
+          } else if (x.is_invited && !x.is_active) {
+            this.invitedCommunitiesList.push(community);
+          } else if (!x.is_active) {
+            this.inactiveCommunitiesList.push(community);
+          }
+        })
+      }
     }));
     this.user = this.authenticationService.user;
     this.reqList.push(this.authenticationService.userUpdate.subscribe(user => {
@@ -42,6 +58,58 @@ export class CommunityListComponent implements OnInit, OnDestroy {
   goToEditDetail(slug) {
     let link = ['/community/edit', slug];
     this.router.navigate(link);
+  }
+
+  quitTheCommunity(community: Community, removeFrom: [Community]) {
+    removeFrom = removeFrom || this.myCommunitiesList;
+    this.reqList.push(
+      this.fellowsService.quitTheCommunity(community).subscribe(
+        data => {
+          let index = removeFrom.findIndex((x: Community) => x.pk === community.pk);
+          if (index !== -1) {
+            let community = removeFrom.splice(index, 1);
+            if (community.length && community[0].is_public) {
+              this.communitiesList.unshift(community[0]);
+            }
+          }
+        },
+        error => {
+        })
+    );
+  }
+
+  acceptInvitation(community: Community) {
+    this.reqList.push(
+      this.fellowsService.acceptInvitation(community).subscribe(
+        data => {
+          let index = this.invitedCommunitiesList.findIndex((x: Community) => x.pk === community.pk);
+          if (index !== -1) {
+            let community = this.invitedCommunitiesList.splice(index, 1);
+            if (community.length) {
+              this.myCommunitiesList.unshift(community[0]);
+            }
+          }
+        },
+        error => {
+        })
+    );
+  }
+
+  enterTheCommunity(community: Community) {
+    this.reqList.push(
+      this.fellowsService.enterTheCommunity(community).subscribe(
+        data => {
+          let index = this.communitiesList.findIndex((x: Community) => x.pk === community.pk);
+          if (index !== -1) {
+            let community = this.communitiesList.splice(index, 1);
+            if (community.length) {
+              this.myCommunitiesList.unshift(community[0]);
+            }
+          }
+        },
+        error => {
+        })
+    );
   }
 
   ngOnDestroy() {

@@ -13,7 +13,8 @@ from emailauth.utils import unique_slug_generator
 
 class Community(models.Model):
     name = models.CharField("Короткое название", max_length=100, unique=True)
-    long_name = models.CharField("Полное название", max_length=100, blank=True, null=True)
+    long_name = models.CharField("Полное название", max_length=250, blank=True, null=True)
+    description = models.TextField("Описание", blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, editable=False)
 
     # private configurations
@@ -34,9 +35,9 @@ class Community(models.Model):
     def title(self):
         return self.name
 
-
     def __unicode__(self):
         return self.name
+
 
 def communities_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
@@ -44,26 +45,6 @@ def communities_pre_save_receiver(sender, instance, *args, **kwargs):
 
 pre_save.connect(communities_pre_save_receiver, sender=Community)
 
-
-class CommunityMember(models.Model):
-    community = models.ForeignKey(Community, related_name='member', on_delete=models.CASCADE)
-    member = models.ForeignKey(User, related_name='community_member', on_delete=models.CASCADE)
-    is_staff = models.BooleanField(
-        _('staff status'),
-        default=False,
-    )
-    is_active = models.BooleanField(
-        _('active'),
-        default=False,
-    )
-
-    class Meta:
-        verbose_name = "Участник сообщества"
-        verbose_name_plural = "Участники сообществ"
-        unique_together = ('community', 'member')
-
-    def __unicode__(self):
-        return "%s - %s" % (self.community.title, self.member.title)
 
 class Fellow(models.Model):
     user = models.OneToOneField(User, related_name='fellow', primary_key=True, on_delete=models.CASCADE)
@@ -74,6 +55,10 @@ class Fellow(models.Model):
     post = models.CharField("Должность", max_length=50, blank=True)
     post_sci = models.CharField("Учёная степень", max_length=50, blank=True)
     post_academy = models.CharField("Учёное звание", max_length=50, blank=True)
+
+    class Meta:
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"
 
     def __unicode__(self):
         return self.title
@@ -93,6 +78,28 @@ def create_favorites(sender, instance, created, **kwargs):
         Fellow.objects.create(user=instance)
 
 
+class CommunityMember(models.Model):
+    community = models.ForeignKey(Community, related_name='member', on_delete=models.CASCADE)
+    member = models.ForeignKey(Fellow, related_name='community_member', on_delete=models.CASCADE)
+    is_staff = models.BooleanField(
+        _('staff status'),
+        default=False,
+    )
+    is_active = models.BooleanField(
+        _('active'),
+        default=False,
+    )
+    is_invited = models.BooleanField("По приглашению", default=False)
+
+    class Meta:
+        verbose_name = "Участник сообщества"
+        verbose_name_plural = "Участники сообществ"
+        unique_together = ('community', 'member')
+
+    def __unicode__(self):
+        return "%s - %s" % (self.community.title, self.member.title)
+
+
 class Publications(models.Model):
     author = models.ForeignKey(Fellow, related_name='publications', on_delete=models.CASCADE)
     year = models.IntegerField("Год", null=True, blank=True)
@@ -100,5 +107,9 @@ class Publications(models.Model):
     bibliography = models.TextField("Библиографичесая ссылка")
     link = models.URLField("Библиографичесая ссылка", blank=True)
 
-    def __str__(self):  # __unicode__
+    class Meta:
+        verbose_name = "Публикация"
+        verbose_name_plural = "Публикации"
+
+    def __unicode__(self):
         return self.bibliography

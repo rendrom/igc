@@ -3,7 +3,7 @@ import {Observable} from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import {HttpClientService} from "./http-client.service";
-import {FellowItem} from "../classes/fellow"; // might lead to error
+import {Fellow} from "../classes/fellow"; // might lead to error
 
 const endpoint = '/api/igc/fellow/';
 
@@ -26,7 +26,7 @@ export class FellowsService {
       .catch(FellowsService.handleError)
   }
 
-  update(slug, data: FellowItem) {
+  update(slug, data: Fellow) {
     return this.http.put(endpoint + slug + "/", data)
       .map(response => response.json())
       .catch(FellowsService.handleError)

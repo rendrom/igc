@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FellowItem} from "../../classes/fellow";
+import {Fellow} from "../../classes/fellow";
 import {Http} from "@angular/http";
 import {Router} from "@angular/router";
 import {FellowsService} from "../../services/fellows.service";
@@ -14,7 +14,7 @@ import {AuthenticationService} from "app/services/authentication.service";
 export class FellowListComponent implements OnInit, OnDestroy {
   private req: any;
   user: User;
-  fellowsList: [FellowItem] = [] as [FellowItem];
+  fellowsList: [Fellow] = [] as [Fellow];
 
   constructor(private router: Router,
               private fellowsService: FellowsService,
@@ -23,7 +23,7 @@ export class FellowListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.req = this.fellowsService.list().subscribe(data => {
-      this.fellowsList = data as [FellowItem]
+      this.fellowsList = data as [Fellow]
     });
     this.user = this.authenticationService.user;
     this.authenticationService.userUpdate.subscribe(user => {

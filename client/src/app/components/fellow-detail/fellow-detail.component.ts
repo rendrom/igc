@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {FellowItem} from "../../classes/fellow";
+import {Fellow} from "../../classes/fellow";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FellowsService} from "../../services/fellows.service";
 import {User} from "app/user";
 import {AuthenticationService} from "../../services/authentication.service";
-import {PublicationItem} from "../../classes/publication";
+import {Publication} from "../../classes/publication";
 
 
 @Component({
@@ -15,8 +15,8 @@ import {PublicationItem} from "../../classes/publication";
 export class FellowDetailComponent implements OnInit, OnDestroy {
   private req: any;
   private routeSub: any;
-  fellow: FellowItem;
-  newFellow: FellowItem;
+  fellow: Fellow;
+  newFellow: Fellow;
   newPublication: any;
   slug: string;
   user: User;
@@ -38,7 +38,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.params.subscribe(params => {
       this.slug = params['slug'];
       this.req = this.fellowsService.get(this.slug).subscribe(data => {
-        this.fellow = data as FellowItem;
+        this.fellow = data as Fellow;
         this.cloneFellow();
         this.route.data
           .subscribe((data: { editMode }) => {

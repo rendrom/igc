@@ -7,19 +7,66 @@
         </md-card-header>
         <md-card-content>
 
-            <div *ngIf='myCommunitiesList'>
-                <h4>Список ваших сообществ</h4>
+            <div *ngIf='myCommunitiesList && myCommunitiesList.length'>
                 <md-list>
+                    <h4 md-subheader>Ваши сообщества</h4>
                     <md-list-item *ngFor="let community of myCommunitiesList">
-                        {{ community.name }}
+                        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="80">{{ community.name }}</div>
+                            <div fxFlex="20">
+                                <button md-button (click)="quitTheCommunity(community)">
+                                    Покинуть
+                                </button>
+                            </div>
+                        </div>
                     </md-list-item>
                 </md-list>
             </div>
-            <div *ngIf='communitiesList'>
-                <h4>Список публичных сообществ</h4>
+            <div *ngIf='invitedCommunitiesList && invitedCommunitiesList.length'>
+                <md-divider></md-divider>
                 <md-list>
+                    <h4 md-subheader>Приглашения</h4>
+                    <md-list-item *ngFor="let community of invitedCommunitiesList">
+                        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="80">{{ community.name }}</div>
+                            <div fxFlex="20">
+                                <button md-button (click)="acceptInvitation(community)">
+                                    Принять
+                                </button>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div *ngIf='inactiveCommunitiesList && inactiveCommunitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Ждут подтверждения</h4>
+                    <md-list-item *ngFor="let community of inactiveCommunitiesList">
+                        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="80">{{ community.name }}</div>
+                            <div fxFlex="20">
+                                <button md-button (click)="quitTheCommunity(community, inactiveCommunitiesList)">
+                                    Отменить
+                                </button>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div *ngIf='communitiesList && communitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Список открытых сообществ</h4>
                     <md-list-item *ngFor="let community of communitiesList">
-                        {{ community.name }}
+                        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="80">{{ community.name }}</div>
+                            <div fxFlex="20">
+                                <button md-button (click)="enterTheCommunity(community)">
+                                    Вступить
+                                </button>
+                            </div>
+                        </div>
                     </md-list-item>
                 </md-list>
             </div>
