@@ -16,6 +16,8 @@ import {
   MdInputModule,
 } from '@angular/material';
 
+import {QuillEditorModule} from 'ngx-quill-editor';
+
 import {AppComponent} from './components/app.component';
 import {AppRoutingModule} from './app.routing';
 import {HomeComponent} from './components/home/home.component';
@@ -34,7 +36,8 @@ import {PasswordResetComponent} from "./components/password-reset/password-reset
 import {PasswordResetConfirmComponent} from './components/password-reset-confirm/password-reset-confirm.component';
 import {CommunityListComponent} from "./components/community-list/community-list.component";
 import {CommunityService} from "./services/community.service";
-import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
+import {CommunityDetailComponent} from './components/community-detail/community-detail.component';
+import { SafeHtmlPipe } from './pipes/safe.pipe';
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import { CommunityDetailComponent } from './components/community-detail/communit
     PasswordResetComponent,
     PasswordResetConfirmComponent,
     CommunityDetailComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,8 @@ import { CommunityDetailComponent } from './components/community-detail/communit
     MdIconModule,
     MdProgressSpinnerModule,
     MdInputModule,
+
+    QuillEditorModule,
 
     AppRoutingModule
   ],

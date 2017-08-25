@@ -17,8 +17,8 @@
                 <div class="model-field-block">
                     <div *ngFor="let field of modelFields.fields">
                         <div *ngIf="field.value" fxLayout="row"
-                         fxLayoutAlign="space-between center"
-                         class="fellows-info__row">
+                             fxLayoutAlign="space-between center"
+                             class="fellows-info__row">
                             <div fxFlex="40%">{{ field.title }}</div>
                             <div fxFlex="60%">
                                 {{ field.value }}
@@ -80,13 +80,11 @@
                                [(ngModel)]="newFellow.phone"/>
                     </md-input-container>
                 </div>
-                <div class="group">
-                    <md-input-container>
-                        <textarea mdInput type="text" placeholder="Биография" name="vita"
-                                  [(ngModel)]="newFellow.vita"></textarea>
-                    </md-input-container>
-                </div>
             </form>
+            <div class="group">
+                <h4>Биография</h4>
+                <quill-editor [(ngModel)]="newFellow.vita"></quill-editor>
+            </div>
         </md-card-content>
         <md-card-actions>
             <button md-button *ngIf="editMode && user && fellow.user.id == user.id" (click)="save()">
@@ -96,6 +94,23 @@
                 Отменить
             </button>
         </md-card-actions>
+    </md-card>
+
+    <md-card class="example-card" *ngIf="!editMode && fellow.vita">
+        <md-card-header>
+            <md-card-title>
+                <h3>
+                     <a *ngIf="user && fellow.user.id == user.id" class="fr edit-link"
+                       routerLink="/fellow/edit/{{ fellow.slug }}">
+                        Редактировать
+                    </a>
+                    Биография
+                </h3>
+            </md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <div [innerHTML]="fellow.vita | safeHtml"></div>
+        </md-card-content>
     </md-card>
 
 
@@ -124,7 +139,7 @@
                     </md-list-item>
                 </md-list>
             </div>
-            <div *ngIf="newPublication" fxLayout="row" fxLayoutAlign="space-between center" >
+            <div *ngIf="newPublication" fxLayout="row" fxLayoutAlign="space-between center">
                 <md-input-container *ngIf="user && fellow.user.id == user.id" fxFlex="90" class="publications-textarea">
                     <textarea mdInput type="text" placeholder="Библиографичесая ссылка"
                               [(ngModel)]="newPublication.bibliography"></textarea>

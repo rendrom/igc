@@ -131,7 +131,6 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
           {name: 'post_sci', title: 'Учёная степень'},
           {name: 'post_academy', title: 'Учёное звание'},
           {name: 'phone', title: 'Номер телефона'},
-          {name: 'vita', title: 'Биография', type: 'text'},
         ],
       }
     ];
