@@ -46,7 +46,7 @@ export class CommunityService {
   }
 
   acceptInvitation(community: Community) {
-    return this.http.put(endpoint + "member/" + community.slug + "/", {is_active: true})
+    return this.http.patch(endpoint + "member/" + community.slug + "/", {is_active: true})
       .map(response => response.json())
       .catch(CommunityService.handleError)
   }

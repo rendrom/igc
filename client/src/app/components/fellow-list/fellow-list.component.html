@@ -1,39 +1,44 @@
 <md-card class="fellows-card" *ngIf='fellowsList && fellowsList.length'>
-  <md-card-header>
-    <md-card-title>
-      <h3>Участники</h3>
-    </md-card-title>
-  </md-card-header>
-  <md-card-content>
-    <div >
-      <md-divider></md-divider>
-      <md-list>
-        <md-list-item *ngFor="let fellow of fellowsList">
-          <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
-            <div fxFlex="60">
-              <div fxLayout="column" fxLayoutAlign="center start">
-                <div fxFlex class="user-name">
+    <md-card-header>
+        <md-card-title>
+            <h3>Участники</h3>
+        </md-card-title>
+    </md-card-header>
+    <md-card-content>
+        <div>
+            <md-divider></md-divider>
+            <md-list>
+                <md-list-item *ngFor="let fellow of fellowsList" class.xs="xs-list-item">
+
+
+                    <div fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxLayoutAlign="space-between center">
+                        <div fxFlex="70">
+                            <div fxLayout="column" fxLayoutAlign="center start">
+                                <div fxFlex class="user-name">
                   <span *ngIf="fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name">
                       {{ fellow.user.first_name }} {{ fellow.user.last_name }} {{ fellow.user.midle_name }}</span>
-                  <span *ngIf="!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)">{{ fellow.user.email }}</span>
-                </div>
-                <div fxFlex>
-                  <span *ngIf="fellow.post">{{ fellow.post }}</span>
-                  <span *ngIf="fellow.post_sci"> {{ fellow.post_sci }}</span>
-                  <span *ngIf="fellow.post_academy"> {{ post_academy }}</span>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="40">
-              <button md-button *ngIf="user && fellow.user.id == user.id" (click)="goToEditDetail(fellow.user.slug)">
-                Редактировать
-              </button>
-              <button md-button routerLink="/fellow/{{fellow.user.slug}}">Перейти</button>
-            </div>
-          </div>
-        </md-list-item>
-      </md-list>
-    </div>
-  </md-card-content>
+                                    <span *ngIf="!(fellow.user.first_name || fellow.user.last_name || fellow.user.midle_name)">{{ fellow.user.email }}</span>
+                                </div>
+                                <div fxFlex>
+                                    <span *ngIf="fellow.post">{{ fellow.post }}</span>
+                                    <span *ngIf="fellow.post_sci"> {{ fellow.post_sci }}</span>
+                                    <span *ngIf="fellow.post_academy"> {{ post_academy }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="end center">
+                                <button md-button fxFlex="" *ngIf="user && fellow.user.id == user.id"
+                                        (click)="goToEditDetail(fellow.user.slug)">
+                                    Изменить
+                                </button>
+                                <button md-button fxFlex routerLink="/fellow/{{ fellow.user.slug }}">Перейти</button>
+                            </div>
+                        </div>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </md-card-content>
 </md-card>
 
