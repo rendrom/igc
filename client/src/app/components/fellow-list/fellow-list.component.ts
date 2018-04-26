@@ -44,12 +44,12 @@ export class FellowListComponent implements OnInit, OnDestroy {
   }
 
   goToDetail(slug) {
-    let link = ['/fellow', slug];
+    const link = ['/fellow', slug];
     this.router.navigate(link);
   }
 
   goToEditDetail(slug) {
-    let link = ['/fellow/edit', slug];
+    const link = ['/fellow/edit', slug];
     this.router.navigate(link);
   }
 

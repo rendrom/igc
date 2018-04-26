@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Fellow} from "../../classes/fellow";
+import {Fellow} from '../../classes/fellow';
 
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 
 @Component({

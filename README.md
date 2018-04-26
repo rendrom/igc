@@ -1,12 +1,11 @@
-IGC Community
-=============
+# IGC COMMUNITE
 
 The site of the IGC Community (A.P. Vinogradov Institute of Geochemistry SB RAS)
 
 ## Used technologies
 
-* Django 1.11.x (+djangorestframework)
-* Angular 4.x
+* Django 2.xx.x (+djangorestframework)
+* Angular 5.x
 
 ## Requirements
 
@@ -17,8 +16,8 @@ The site of the IGC Community (A.P. Vinogradov Institute of Geochemistry SB RAS)
 
     $ git clone https://github.com/rendrom/igc.git
     $ cd ./igc
-    $ virtualenv ./.env
-    $ . ./.env/bin/activate # (./.env/Scripts/activate for Windows)
+    $ python3 -m venv ./.env
+    $ . ./.env/bin/activate # (for Windows ./.env/Scripts/activate)
     $ pip install -r ./requirements.txt
     $ python manage.py migrate
     $ cd ./client
@@ -27,4 +26,19 @@ The site of the IGC Community (A.P. Vinogradov Institute of Geochemistry SB RAS)
     $ cd ../
     $ python manage.py runserver
 
-     
+Posix
+
+    bash/zsh    $ source <venv>/bin/activate
+    fish        $ . <venv>/bin/activate.fish
+    csh/tcsh    $ source <venv>/bin/activate.csh
+
+Windows
+
+    cmd.exe      C:\> <venv>\Scripts\activate.bat
+    PowerShell   PS C:\> <venv>\Scripts\Activate.ps1
+
+### Windows only
+
+For power shell
+
+    Set-ExecutionPolicy Unrestricted -Force

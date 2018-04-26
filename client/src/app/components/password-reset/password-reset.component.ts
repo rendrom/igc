@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthenticationService} from "../../services/authentication.service";
-import {Fellow} from "../../classes/fellow";
-import { HttpClientService } from "app/services/http-client.service";
+import {Router} from '@angular/router';
+import {AuthenticationService} from '../../services/authentication.service';
+import {Fellow} from '../../classes/fellow';
+import { HttpClientService } from 'app/services/http-client.service';
 
 @Component({
   selector: 'app-reset-password',

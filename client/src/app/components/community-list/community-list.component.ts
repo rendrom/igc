@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {User} from "../../user";
-import {AuthenticationService} from "../../services/authentication.service";
-import {Community} from "../../classes/community";
-import {CommunityService} from "../../services/community.service";
-import {CommunityMember} from "../../classes/community-member";
+import {Router} from '@angular/router';
+import {User} from '../../user';
+import {AuthenticationService} from '../../services/authentication.service';
+import {Community} from '../../classes/community';
+import {CommunityService} from '../../services/community.service';
+import {CommunityMember} from '../../classes/community-member';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
@@ -35,7 +35,7 @@ export class CommunityListComponent implements OnInit, OnDestroy {
     this.reqList.push(this.fellowsService.myList().subscribe(data => {
       if (data && data.length) {
         data.forEach((x: CommunityMember) => {
-          let community = x.community;
+          const community = x.community;
           if (x.is_active) {
             this.myCommunitiesList.push(community);
           } else if (x.is_invited && !x.is_active) {
@@ -53,12 +53,12 @@ export class CommunityListComponent implements OnInit, OnDestroy {
   }
 
   goToDetail(slug) {
-    let link = ['/community', slug];
+    const link = ['/community', slug];
     this.router.navigate(link);
   }
 
   goToEditDetail(slug) {
-    let link = ['/community/edit', slug];
+    const link = ['/community/edit', slug];
     this.router.navigate(link);
   }
 
@@ -67,11 +67,11 @@ export class CommunityListComponent implements OnInit, OnDestroy {
     this.reqList.push(
       this.fellowsService.quitTheCommunity(community).subscribe(
         data => {
-          let index = removeFrom.findIndex((x: Community) => x.pk === community.pk);
+          const index = removeFrom.findIndex((x: Community) => x.pk === community.pk);
           if (index !== -1) {
-            let community = removeFrom.splice(index, 1);
-            if (community.length && community[0].is_public) {
-              this.communitiesList.unshift(community[0]);
+            const comm = removeFrom.splice(index, 1);
+            if (comm.length && comm[0].is_public) {
+              this.communitiesList.unshift(comm[0]);
             }
           }
         },
@@ -84,11 +84,11 @@ export class CommunityListComponent implements OnInit, OnDestroy {
     this.reqList.push(
       this.fellowsService.acceptInvitation(community).subscribe(
         data => {
-          let index = this.invitedCommunitiesList.findIndex((x: Community) => x.pk === community.pk);
+          const index = this.invitedCommunitiesList.findIndex((x: Community) => x.pk === community.pk);
           if (index !== -1) {
-            let community = this.invitedCommunitiesList.splice(index, 1);
-            if (community.length) {
-              this.myCommunitiesList.unshift(community[0]);
+            const comm = this.invitedCommunitiesList.splice(index, 1);
+            if (comm.length) {
+              this.myCommunitiesList.unshift(comm[0]);
             }
           }
         },
@@ -101,11 +101,11 @@ export class CommunityListComponent implements OnInit, OnDestroy {
     this.reqList.push(
       this.fellowsService.enterTheCommunity(community).subscribe(
         data => {
-          let index = this.communitiesList.findIndex((x: Community) => x.pk === community.pk);
+          const index = this.communitiesList.findIndex((x: Community) => x.pk === community.pk);
           if (index !== -1) {
-            let community = this.communitiesList.splice(index, 1);
-            if (community.length) {
-              this.myCommunitiesList.unshift(community[0]);
+            const comm = this.communitiesList.splice(index, 1);
+            if (comm.length) {
+              this.myCommunitiesList.unshift(comm[0]);
             }
           }
         },

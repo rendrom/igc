@@ -18,7 +18,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
   newPublication: any;
   slug: string;
   user: User;
-  editMode: boolean = false;
+  editMode = false;
 
   private reqList: [Subscription] = [] as [Subscription];
 
@@ -43,8 +43,8 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
             this.fellow = data as Fellow;
             this.cloneFellow();
             this.reqList.push(
-              this.route.data.subscribe((data: { editMode }) => {
-                this.editMode = data.editMode;
+              this.route.data.subscribe((d: { editMode }) => {
+                this.editMode = d.editMode;
               })
             )
           })
@@ -64,7 +64,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
   }
 
   goToEditDetail(slug) {
-    let link = ['/fellow/edit', slug];
+    const link = ['/fellow/edit', slug];
     this.router.navigate(link);
   }
 
@@ -105,7 +105,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
 
   cancel() {
     this.cloneFellow();
-    let link = ['/fellow/', this.slug];
+    const link = ['/fellow/', this.slug];
     this.router.navigate(link);
   }
 
@@ -114,7 +114,7 @@ export class FellowDetailComponent implements OnInit, OnDestroy {
   }
 
   get fields() {
-    let fields = [
+    const fields = [
       {
         model: this.fellow.user,
         fields: [

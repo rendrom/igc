@@ -1,4 +1,4 @@
-import {Community} from "./community";
+import {Community} from './community';
 import {Fellow} from './fellow';
 
 export class CommunityMember {

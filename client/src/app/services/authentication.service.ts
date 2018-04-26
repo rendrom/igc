@@ -15,7 +15,7 @@ export class AuthenticationService {
 
   constructor(private http: Http, private httpClient: HttpClientService, private router: Router) {
     // set token if saved in local storage
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
     if (this.token) {
       this.httpClient.addHeader('Authorization', 'JWT ' + this.token);
@@ -29,12 +29,12 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string): Observable<boolean> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
 
     return this.http.post('/api-token-auth/', JSON.stringify({email, password}), options)
       .map((response: Response) => {
-        let token = response.json() && response.json().token;
+        const token = response.json() && response.json().token;
         if (token) {
           // set token property
           this.token = token;
@@ -49,8 +49,8 @@ export class AuthenticationService {
   }
 
   signin(data: any): Observable<any> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
 
     return this.http.post('/account/register/', JSON.stringify(data), options)
       .map((response: Response) => {
@@ -59,8 +59,8 @@ export class AuthenticationService {
   }
 
   resetPassword(email: string): Observable<any> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.post('/account/password/reset/', JSON.stringify({email}), options)
       .map((response: Response) => {
         return response.json();
@@ -68,8 +68,8 @@ export class AuthenticationService {
   }
 
   resetPasswordConfirm({uid, token, new_password}): Observable<any> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.post('/account/password/reset/confirm/', JSON.stringify({uid, token, new_password}), options)
       .map((response: Response) => {
         return response.json();

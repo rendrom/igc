@@ -1,5 +1,5 @@
-import {Publication} from "./publication";
-import {User} from "../user";
+import {Publication} from './publication';
+import {User} from '../user';
 export class Fellow {
 
   user: User;
