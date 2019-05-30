@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from emailauth.serializers import UserSerializer
+from users.serializers import UserSerializer
 from igc.models import Fellow, Publications, Community, CommunityMember
 
 

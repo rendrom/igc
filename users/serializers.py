@@ -1,7 +1,9 @@
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
-from emailauth.models import User
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 class AuthTokenSerializer(serializers.Serializer):
     email = serializers.EmailField(label=_("Email"))

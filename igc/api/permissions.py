@@ -1,7 +1,10 @@
-from django.contrib.auth.models import User
 from rest_framework import permissions
 
 from igc.models import CommunityMember
+
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 
 class IsStaffOrTargetUser(permissions.BasePermission):

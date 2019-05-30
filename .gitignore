@@ -3,6 +3,8 @@ client/node_modules
 client/e2e
 client/bootstrap-overview
 
+.vscode
+
 
 backend/bin
 backend/include

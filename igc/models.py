@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
-from djoser.views import User
 from django.utils.translation import ugettext_lazy as _
+from users.utils import unique_slug_generator
+from django.conf import settings
 
-from emailauth.utils import unique_slug_generator
+User = settings.AUTH_USER_MODEL
 
 
 class Community(models.Model):
@@ -47,7 +47,7 @@ pre_save.connect(communities_pre_save_receiver, sender=Community)
 
 
 class Fellow(models.Model):
-    user = models.OneToOneField(User, related_name='fellow', primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='fellow', primary_key=True, on_delete=models.CASCADE)
 
     vita = models.TextField("Биография", blank=True)
     phone = models.CharField("Номер телеофна", max_length=100, blank=True)

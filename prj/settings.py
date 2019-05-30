@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    'emailauth',
-    'igc'
+    'users.apps.UsersConfig',
+    'igc.apps.IgcConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,14 +121,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-AUTH_USER_MODEL = 'emailauth.User'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 
@@ -141,7 +141,7 @@ JWT_AUTH = {
 DJOSER = {
     'SITE_NAME': 'IGC lab 18.1',
     'SERIALIZERS': {
-        'user': 'emailauth.serializers.UserSerializer'
+        'user': 'users.serializers.UserSerializer'
     },
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     # 'ACTIVATION_URL': 'activate/{uid}/{token}',
