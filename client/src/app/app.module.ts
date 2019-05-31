@@ -1,8 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientModule} from '@angular/common/http';
+// import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -16,7 +16,7 @@ import {
   MatInputModule,
 } from '@angular/material';
 
-import {QuillEditorModule} from 'ngx-quill-editor';
+// import {QuillEditorModule} from 'ngx-quill-editor';
 
 import {AppComponent} from './components/app.component';
 import {AppRoutingModule} from './app.routing';
@@ -58,9 +58,9 @@ import { SafeHtmlPipe } from './pipes/safe.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
 
     MatButtonModule,
     MatMenuModule,
@@ -71,7 +71,7 @@ import { SafeHtmlPipe } from './pipes/safe.pipe';
     MatProgressSpinnerModule,
     MatInputModule,
 
-    QuillEditorModule,
+    // QuillEditorModule,
 
     AppRoutingModule
   ],

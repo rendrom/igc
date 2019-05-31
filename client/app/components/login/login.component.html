@@ -1,0 +1,32 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>
+            <h3>Войти</h3>
+        </md-card-title>
+    </md-card-header>
+    <md-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <div class="group">
+                <md-input-container>
+                    <input mdInput type="email" placeholder="Адрес электронной почты" class="form-control"
+                           name="password"
+                           [(ngModel)]="model.email" #password="ngModel"
+                           required/>
+                </md-input-container>
+            </div>
+            <div class="group">
+                <md-input-container>
+                    <input mdInput type="password" placeholder="Пароль" class="form-control" name="password"
+                           [(ngModel)]="model.password" #password="ngModel"
+                           required/>
+                </md-input-container>
+            </div>
+            <div>
+                <div class="reset-password-link" routerLink="/password/reset">Забыли пароль?</div>
+            </div>
+            <div>
+                <button md-button [disabled]="loading">Далее</button>
+            </div>
+        </form>
+    </md-card-content>
+</md-card>

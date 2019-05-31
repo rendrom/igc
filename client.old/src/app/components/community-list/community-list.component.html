@@ -1,0 +1,94 @@
+<div>
+    <md-card class="fellows-card">
+        <md-card-header>
+            <md-card-title>
+                <h3>Сообщества</h3>
+            </md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <div *ngIf='myCommunitiesList && myCommunitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Ваши сообщества</h4>
+                    <md-list-item *ngFor="let community of myCommunitiesList" class.xs="xs-list-item">
+                        <div fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="70">{{ community.name }}</div>
+                            <div fxFlex>
+                                <div fxLayout="row" fxLayoutAlign="end center">
+                                    <button md-button fxFlex routerLink="/community/{{ community.slug }}">
+                                        Перейти
+                                    </button>
+                                    <button md-button fxFlex (click)="quitTheCommunity(community)">
+                                        Покинуть
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div *ngIf='invitedCommunitiesList && invitedCommunitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Приглашения</h4>
+
+                    <md-list-item *ngFor="let community of invitedCommunitiesList" class.xs="xs-list-item">
+                        <div fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="70">{{ community.name }}</div>
+                            <div fxFlex>
+                                <div fxLayout="row" fxLayoutAlign="end center">
+                                    <button md-button fxFlex (click)="acceptInvitation(community)">
+                                        Принять
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+
+                </md-list>
+            </div>
+            <div *ngIf='inactiveCommunitiesList && inactiveCommunitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Ждут подтверждения</h4>
+
+                    <md-list-item *ngFor="let community of inactiveCommunitiesList" class.xs="xs-list-item">
+                        <div fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="70">{{ community.name }}</div>
+                            <div fxFlex>
+                                <div fxLayout="row" fxLayoutAlign="end center">
+                                    <button md-button fxFlex
+                                            (click)="quitTheCommunity(community, inactiveCommunitiesList)">
+                                        Отменить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+
+                </md-list>
+            </div>
+            <div *ngIf='communitiesList && communitiesList.length'>
+                <md-divider></md-divider>
+                <md-list>
+                    <h4 md-subheader>Список открытых сообществ</h4>
+
+                    <md-list-item *ngFor="let community of communitiesList" class.xs="xs-list-item">
+                        <div fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxLayoutAlign="space-between center">
+                            <div fxFlex="70">{{ community.name }}</div>
+                            <div fxFlex>
+                                <div fxLayout="row" fxLayoutAlign="end center">
+                                    <button md-button fxFlex (click)="enterTheCommunity(community)">
+                                        Вступить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+
+                </md-list>
+            </div>
+        </md-card-content>
+    </md-card>
+
+</div>

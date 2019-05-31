@@ -1,0 +1,29 @@
+<md-toolbar color="primary">
+
+    <button md-icon-button (click)="goToMainPage()">
+        <md-icon>home</md-icon>
+    </button>
+    <div class="logo" (click)="goToMainPage()">IGC</div>
+    <span class="example-spacer"></span>
+    <button md-button [mdMenuTriggerFor]="appMenu">
+        <md-icon>menu</md-icon>
+    </button>
+
+</md-toolbar>
+
+<md-menu #appMenu="mdMenu">
+    <button md-menu-item *ngIf="!user" routerLink="/login"> Войти</button>
+    <button md-menu-item *ngIf="!user" routerLink="/signin"> Регистрация</button>
+    <button md-menu-item *ngIf="!user" routerLink="/password/reset"> Восстановить пароль</button>
+    <button md-menu-item *ngIf="user" (click)="logout()"> Выйти</button>
+    <button md-menu-item *ngIf="user" routerLink="/fellow/{{ user.slug }}"> Профиль</button>
+    <button md-menu-item> Помощь</button>
+</md-menu>
+
+<div class="app-component-viewer">
+    <div fxLayout="row" fxLayoutAlign="center stretch">
+        <div fxFlex="90" fxFlex.gt-sm="70" fxFlex.gt-md="60" fxFlex.gt-lg="50">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

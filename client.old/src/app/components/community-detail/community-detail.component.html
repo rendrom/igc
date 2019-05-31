@@ -1,0 +1,4 @@
+<div *ngIf="community">
+  <h3>Сообщество {{community.name}}</h3>
+  <app-fellow-list *ngIf="fellows && fellows.length" [fellows]="fellows"></app-fellow-list>
+</div>

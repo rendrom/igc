@@ -1,0 +1,35 @@
+form {
+  margin: 20px 0;
+}
+
+label {
+  color: #999;
+  font-size: 15px;
+}
+
+.publications-textarea {
+  min-width: 350px;
+}
+
+.mat-list-item {
+  font-size: 14px;
+}
+
+.edit-link {
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.edit-link :hover {
+  text-decoration: underline;
+}
+
+.fellows-info__row {
+  margin-bottom: 20px;
+}
+
+.model-field-block {
+  margin: 5px 0;
+}
+
